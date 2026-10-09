@@ -1,0 +1,6217 @@
+/* =========================================================
+   SKILLMIRROR AI - FINAL STYLE.CSS
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    background: #f6f7fb;
+    color: #111827;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+button,
+input,
+select {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+input,
+select {
+    outline: none;
+}
+
+
+/* =========================================================
+   SCREEN CONTROL
+   ========================================================= */
+
+/* Login / Signup / Forgot are hidden until JS opens them */
+.auth-screen {
+    display: none;
+    min-height: 100vh;
+    width: 100%;
+    padding: 30px 18px;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(99, 102, 241, 0.13),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            rgba(139, 92, 246, 0.10),
+            transparent 35%
+        ),
+        #f6f7fb;
+}
+
+/* Goal screen hidden initially */
+#goalScreen {
+    display: none;
+    min-height: 100vh;
+    padding: 45px 25px;
+}
+
+/* App header hidden until dashboard */
+.top-header {
+    display: none;
+}
+
+/* Dashboard hidden until login */
+#home {
+    display: none;
+}
+
+/* All app screens hidden until JS opens them */
+.app-screen {
+    display: none;
+}
+
+
+
+/* =========================================================
+   LOGIN / SIGNUP / FORGOT CARD
+   ========================================================= */
+
+.auth-card {
+    width: min(460px, 100%);
+    padding: 38px 34px;
+    border-radius: 28px;
+
+    background: rgba(255, 255, 255, 0.97);
+
+    border: 1px solid rgba(99, 102, 241, 0.10);
+
+    box-shadow:
+        0 25px 70px rgba(15, 23, 42, 0.10),
+        0 5px 18px rgba(15, 23, 42, 0.04);
+
+    text-align: center;
+}
+
+.onboarding-logo {
+    width: 64px;
+    height: 64px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background: linear-gradient(
+        135deg,
+        #6366f1,
+        #8b5cf6
+    );
+
+    font-size: 30px;
+
+    box-shadow:
+        0 10px 25px rgba(99, 102, 241, 0.20);
+}
+
+.auth-card .small-text {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #6366f1;
+}
+
+.auth-card h1 {
+    margin: 8px 0 10px;
+    font-size: 34px;
+    line-height: 1.15;
+}
+
+.auth-card h1 span {
+    color: #6366f1;
+}
+
+.auth-card > p:not(.small-text) {
+    margin-bottom: 24px;
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.form-group {
+    width: 100%;
+    margin-bottom: 13px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    color: #475569;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.auth-card input,
+.auth-card select {
+    width: 100%;
+    height: 50px;
+
+    padding: 0 15px;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 13px;
+
+    background: #f8fafc;
+
+    color: #111827;
+    font-size: 14px;
+
+    transition: 0.2s ease;
+}
+
+.auth-card input:focus,
+.auth-card select:focus {
+    background: white;
+    border-color: #818cf8;
+
+    box-shadow:
+        0 0 0 4px rgba(99, 102, 241, 0.08);
+}
+
+
+/* =========================================================
+   PASSWORD
+   ========================================================= */
+
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.password-wrapper input {
+    padding-right: 52px;
+}
+
+.password-wrapper button {
+    position: absolute;
+    right: 5px;
+    top: 4px;
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    background: transparent;
+
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   LOGIN OPTIONS
+   ========================================================= */
+
+.login-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 3px 0 18px;
+
+    font-size: 12px;
+}
+
+.remember-option {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    color: #64748b;
+}
+
+.remember-option input {
+    width: auto;
+    height: auto;
+    margin: 0;
+}
+
+.forgot-password {
+    border: none;
+    background: transparent;
+
+    color: #6366f1;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   TERMS
+   ========================================================= */
+
+.terms-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+
+    margin: 5px 0 18px;
+
+    color: #64748b;
+    font-size: 12px;
+    text-align: left;
+}
+
+.terms-option input {
+    width: auto;
+    height: auto;
+    margin-top: 2px;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.login-button,
+.signup-button,
+.auth-button,
+.main-button {
+    width: 100%;
+    min-height: 50px;
+
+    border: none;
+    border-radius: 13px;
+
+    background: linear-gradient(
+        135deg,
+        #4f46e5,
+        #7c3aed
+    );
+
+    color: white;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    box-shadow:
+        0 10px 22px rgba(79, 70, 229, 0.20);
+
+    transition: 0.2s ease;
+}
+
+.login-button:hover,
+.signup-button:hover,
+.auth-button:hover,
+.main-button:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 13px 28px rgba(79, 70, 229, 0.26);
+}
+
+.create-account-text {
+    margin-top: 20px;
+
+    color: #64748b;
+    font-size: 13px;
+}
+
+.create-account-btn,
+.back-login-btn {
+    border: none;
+    background: transparent;
+
+    color: #6366f1;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.back-login-btn {
+    margin-top: 18px;
+}
+
+.login-message {
+    min-height: 20px;
+    margin-top: 12px;
+
+    color: #ef4444;
+
+    font-size: 13px;
+    text-align: center;
+}
+
+
+/* =========================================================
+   GOAL SCREEN
+   ========================================================= */
+
+.goal-container {
+    width: min(1100px, 100%);
+    margin: auto;
+}
+
+.goal-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.goal-header .small-text {
+    color: #6366f1;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.3px;
+}
+
+.goal-header h1 {
+    margin: 8px 0 10px;
+
+    font-size: 38px;
+    line-height: 1.15;
+}
+
+.goal-header > p:last-child {
+    max-width: 650px;
+    margin: auto;
+
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.goal-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+.goal-card {
+    min-height: 135px;
+
+    padding: 20px;
+
+    text-align: left;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+
+    background: white;
+
+    box-shadow:
+        0 5px 18px rgba(15, 23, 42, 0.05);
+
+    transition: 0.2s ease;
+}
+
+.goal-card:hover {
+    transform: translateY(-2px);
+
+    border-color: #a5b4fc;
+
+    box-shadow:
+        0 10px 25px rgba(99, 102, 241, 0.10);
+}
+
+.goal-card.selected {
+    border: 2px solid #6366f1;
+    background: #f5f3ff;
+}
+
+.goal-card span {
+    display: block;
+
+    margin-bottom: 9px;
+
+    font-size: 26px;
+}
+
+.goal-card h3 {
+    margin-bottom: 5px;
+
+    color: #111827;
+    font-size: 15px;
+}
+
+.goal-card p {
+    color: #64748b;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+#aiChooseBtn,
+#continueGoalBtn {
+    display: block;
+
+    width: min(500px, 100%);
+    min-height: 48px;
+
+    margin: 16px auto 0;
+
+    border-radius: 13px;
+
+    font-weight: 700;
+}
+
+#aiChooseBtn {
+    border: 1px solid #c7d2fe;
+
+    background: #eef2ff;
+    color: #4f46e5;
+}
+
+#continueGoalBtn {
+    border: none;
+
+    background: linear-gradient(
+        135deg,
+        #4f46e5,
+        #7c3aed
+    );
+
+    color: white;
+}
+
+
+/* =========================================================
+   TOP HEADER
+   ========================================================= */
+
+.top-header {
+    height: 70px;
+
+    padding: 0 30px;
+
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(255,255,255,0.97);
+
+    border-bottom: 1px solid #e5e7eb;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 900;
+
+    backdrop-filter: blur(12px);
+}
+
+.top-header h1 {
+    font-size: 24px;
+    font-weight: 800;
+    color: #172554;
+}
+
+.menu-button {
+    width: 45px;
+    height: 45px;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+
+    background: white;
+
+    font-size: 22px;
+}
+
+
+/* =========================================================
+   DASHBOARD
+   ========================================================= */
+
+.dashboard {
+    max-width: 1180px;
+
+    margin: auto;
+
+    padding: 40px 28px 110px;
+}
+
+.welcome-section {
+    margin-bottom: 24px;
+}
+
+.welcome-section .small-text {
+    color: #6366f1;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.welcome-section h1 {
+    max-width: 780px;
+
+    margin: 8px 0 10px;
+
+    font-size: clamp(35px, 5vw, 55px);
+
+    line-height: 1.05;
+
+    letter-spacing: -1.5px;
+}
+
+.welcome-section h1 span {
+    display: block;
+    color: #6366f1;
+}
+
+.welcome-section > p:not(.small-text) {
+    margin-bottom: 14px;
+
+    color: #64748b;
+    font-size: 15px;
+}
+
+.selected-goal-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+
+    padding: 10px 15px;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+
+    background: white;
+
+    color: #475569;
+
+    font-size: 13px;
+
+    box-shadow:
+        0 4px 14px rgba(15,23,42,0.04);
+}
+
+.selected-goal-card strong {
+    color: #4f46e5;
+}
+
+
+/* =========================================================
+   PREMIUM STATS - HORIZONTAL
+   ========================================================= */
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 13px;
+
+    margin: 22px 0 28px;
+}
+
+.stat-card {
+    min-width: 0;
+
+    min-height: 100px;
+
+    padding: 15px 16px;
+
+    border: 1px solid rgba(99,102,241,0.11);
+
+    border-radius: 17px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f8f9ff
+        );
+
+    box-shadow:
+        0 6px 20px rgba(15,23,42,0.055),
+        inset 0 1px 0 rgba(255,255,255,0.9);
+
+    transition: 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(79,70,229,0.10);
+}
+
+.stat-card > div:first-child {
+    margin-bottom: 5px;
+
+    font-size: 20px;
+}
+
+.stat-card .number {
+    font-size: 21px;
+
+    line-height: 1.1;
+
+    font-weight: 800;
+
+    color: #111827;
+}
+
+.stat-card .label {
+    margin-top: 4px;
+
+    color: #64748b;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   DASHBOARD CARDS
+   ========================================================= */
+
+.dashboard-card {
+    margin-bottom: 20px;
+
+    padding: 27px;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 22px;
+
+    background: white;
+
+    box-shadow:
+        0 7px 25px rgba(15,23,42,0.055);
+}
+
+.dashboard-card h2 {
+    margin: 4px 0 8px;
+
+    color: #111827;
+}
+
+.dashboard-card p {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   AI TEACHER DASHBOARD CARD
+   ========================================================= */
+
+.ai-classes-home-card {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+
+    background:
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(99,102,241,0.13),
+            transparent 35%
+        ),
+        white;
+}
+
+.ai-classes-home-icon {
+    width: 65px;
+    height: 65px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background: #eef2ff;
+
+    font-size: 30px;
+}
+
+.ai-classes-home-content {
+    flex: 1;
+}
+
+.ai-classes-home-content .small-text {
+    color: #6366f1;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+}
+
+.ai-classes-home-content p {
+    margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   ROADMAP PREVIEW
+   ========================================================= */
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 18px;
+}
+
+.section-heading .small-text {
+    color: #6366f1;
+
+    font-size: 11px;
+
+    font-weight: 800;
+}
+
+.section-heading h2 {
+    margin-top: 4px;
+}
+
+.change-goal-btn {
+    border: 1px solid #c7d2fe;
+
+    border-radius: 10px;
+
+    padding: 9px 13px;
+
+    background: #eef2ff;
+
+    color: #4f46e5;
+
+    font-weight: 700;
+}
+
+.roadmap {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+/* =========================================================
+   QUICK ACTIONS
+   ========================================================= */
+
+.dashboard-card:last-child .goal-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 13px;
+}
+
+.dashboard-card:last-child .goal-card {
+    min-height: 115px;
+
+    padding: 17px;
+
+    background: #fafbff;
+}
+
+.dashboard-card:last-child .goal-card span {
+    font-size: 22px;
+}
+
+.dashboard-card:last-child .goal-card h3 {
+    margin-top: 7px;
+}
+
+.dashboard-card:last-child .goal-card p {
+    margin-top: 3px;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   AI CLASS SCREEN
+   ========================================================= */
+
+.ai-class-screen {
+    max-width: 1050px;
+}
+
+.ai-class-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+.back-button {
+    width: 44px;
+    height: 44px;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+
+    background: white;
+
+    font-size: 20px;
+}
+
+.ai-class-intro {
+    margin-bottom: 20px;
+}
+
+.ai-class-intro h1 {
+    margin: 5px 0;
+
+    font-size: 32px;
+}
+
+.ai-class-intro p:last-child {
+    color: #64748b;
+}
+
+.class-progress {
+    height: 9px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background: #e5e7eb;
+}
+
+.class-progress-bar {
+    width: 0%;
+    height: 100%;
+
+    border-radius: inherit;
+
+    background: linear-gradient(
+        90deg,
+        #4f46e5,
+        #8b5cf6
+    );
+}
+
+
+/* =========================================================
+   TEACHER
+   ========================================================= */
+
+.teacher-speaking {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    margin: 18px 0;
+}
+
+.teacher-avatar {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 17px;
+
+    background: #eef2ff;
+
+    font-size: 27px;
+}
+
+.teacher-speaking p {
+    color: #475569;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.voice-wave {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.voice-wave span {
+    width: 4px;
+    height: 17px;
+
+    border-radius: 5px;
+
+    background: #818cf8;
+}
+
+
+/* =========================================================
+   BLACKBOARD
+   ========================================================= */
+
+.premium-blackboard {
+    padding: 12px;
+
+    border-radius: 21px;
+
+    background: #111827;
+
+    box-shadow:
+        0 15px 35px rgba(15,23,42,0.18);
+}
+
+.blackboard {
+    min-height: 280px;
+
+    padding: 28px;
+
+    border: 2px solid #475569;
+    border-radius: 14px;
+
+    background: #17202b;
+
+    color: white;
+}
+
+#boardTitle {
+    margin-bottom: 14px;
+
+    font-size: 28px;
+}
+
+#boardText {
+    color: #e2e8f0;
+
+    line-height: 1.7;
+
+    white-space: pre-wrap;
+}
+
+.board-example {
+    margin-top: 18px;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    background: rgba(255,255,255,0.07);
+
+    color: #cbd5e1;
+}
+
+
+/* =========================================================
+   LESSON INFO
+   ========================================================= */
+
+.lesson-info-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin: 18px 0;
+}
+
+.lesson-info-card {
+    padding: 16px;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+
+    background: white;
+}
+
+.lesson-info-card span {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #6366f1;
+
+    font-size: 10px;
+
+    font-weight: 800;
+}
+
+.lesson-info-card strong {
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   ASK TEACHER
+   ========================================================= */
+
+.class-doubt-box {
+    margin-top: 18px;
+
+    padding: 22px;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+
+    background: white;
+}
+
+.class-doubt-box > p {
+    margin: 7px 0 14px;
+}
+
+#classDoubtInput {
+    width: 100%;
+
+    min-height: 46px;
+
+    padding: 12px;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 11px;
+}
+
+#classAskBtn {
+    width: auto;
+
+    margin-top: 9px;
+
+    padding: 11px 16px;
+}
+
+#classTeacherResponse {
+    padding: 14px;
+
+    border-radius: 10px;
+
+    background: #f8fafc;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   QUICK HELP
+   ========================================================= */
+
+.class-quick-actions {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin: 15px 0;
+}
+
+.class-quick-actions button {
+    padding: 9px 12px;
+
+    border: 1px solid #c7d2fe;
+    border-radius: 9px;
+
+    background: #eef2ff;
+
+    color: #4f46e5;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   QUIZ
+   ========================================================= */
+
+.class-question-box {
+    margin-top: 18px;
+
+    padding: 22px;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+
+    background: white;
+}
+
+.class-question-box h2 {
+    margin: 6px 0 10px;
+}
+
+.class-question-box > p:not(.small-text) {
+    color: #475569;
+}
+
+.answer-option {
+    display: block;
+
+    width: 100%;
+
+    margin-top: 9px;
+
+    padding: 12px;
+
+    text-align: left;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+
+    background: white;
+
+    color: #334155;
+}
+
+.answer-option:hover,
+.answer-option.selected {
+    border-color: #6366f1;
+
+    background: #eef2ff;
+
+    color: #4f46e5;
+}
+
+#submitClassAnswer {
+    width: auto;
+
+    margin-top: 13px;
+
+    padding: 11px 16px;
+}
+
+
+/* =========================================================
+   CLASS CONTROLS
+   ========================================================= */
+
+.class-controls {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.class-controls button {
+    padding: 10px 16px;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+
+    background: white;
+
+    font-weight: 700;
+}
+
+.class-completion-box {
+    margin-top: 20px;
+
+    padding: 25px;
+
+    text-align: center;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+
+    background: white;
+}
+
+.class-score {
+    margin: 12px 0;
+
+    color: #4f46e5;
+}
+
+.class-score strong {
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 42px;
+}
+
+
+/* =========================================================
+   ROADMAP SCREEN
+   ========================================================= */
+
+.roadmap-screen {
+    max-width: 1100px;
+}
+
+.roadmap-header {
+    margin-bottom: 22px;
+}
+
+.roadmap-header h1 {
+    margin: 5px 0;
+
+    font-size: 32px;
+}
+
+.roadmap-header p {
+    color: #64748b;
+}
+
+.roadmap-screen .dashboard-card {
+    padding: 23px;
+}
+
+.roadmap-screen .dashboard-card h2 {
+    margin: 5px 0;
+}
+
+.roadmap-container {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 13px;
+}
+
+
+/* =========================================================
+   PERFORMANCE
+   ========================================================= */
+
+.performance-screen {
+    max-width: 1050px;
+}
+
+.performance-card {
+    padding: 28px;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+
+    background: white;
+
+    box-shadow:
+        0 7px 25px rgba(15,23,42,0.055);
+
+    text-align: center;
+}
+
+.big-number {
+    font-size: 52px;
+
+    font-weight: 800;
+
+    color: #4f46e5;
+}
+
+.performance-card h3 {
+    margin: 7px 0;
+}
+
+.performance-card p {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.performance-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 13px;
+
+    margin: 18px 0;
+}
+
+.performance-grid .performance-card {
+    padding: 20px 12px;
+}
+
+.performance-grid .big-number {
+    font-size: 30px;
+}
+
+.performance-screen .dashboard-card {
+    padding: 24px;
+}
+
+.performance-screen .dashboard-card p {
+    margin: 8px 0 15px;
+}
+
+
+/* =========================================================
+   SIDE MENU
+   ========================================================= */
+
+.side-menu {
+    position: fixed;
+
+    top: 0;
+    right: -350px;
+    transform: translateX(-110);
+
+    width: min(340px, 88vw);
+    height: 100vh;
+
+    z-index: 2000;
+
+    padding: 24px;
+
+    overflow-y: auto;
+
+    background: white;
+
+    box-shadow:
+        -15px 0 45px rgba(15,23,42,0.16);
+
+    transition: right 0.25s ease;
+}
+
+.side-menu.open {
+    right: 0;
+}
+
+.side-menu-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 22px;
+}
+
+.side-menu-header h2 {
+    font-size: 21px;
+}
+
+#closeMenu {
+    width: 40px;
+    height: 40px;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+
+    background: white;
+
+    font-size: 19px;
+}
+
+.menu-item {
+    display: block;
+
+    width: 100%;
+
+    min-height: 46px;
+
+    margin-bottom: 8px;
+
+    padding: 0 14px;
+
+    text-align: left;
+
+    border: none;
+    border-radius: 11px;
+
+    background: #f8fafc;
+
+    color: #334155;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.menu-item:hover {
+    background: #eef2ff;
+
+    color: #4f46e5;
+}
+
+
+
+#logoutBtn {
+    margin-top: 12px;
+
+    background: #fff1f2;
+
+    color: #e11d48;
+}
+
+
+/* =========================================================
+   MENU OVERLAY
+   ========================================================= */
+
+.menu-overlay {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1900;
+
+    background: rgba(15,23,42,0.35);
+
+    backdrop-filter: blur(2px);
+}
+
+.menu-overlay.show {
+    display: block;
+}
+
+
+/* =========================================================
+   BOTTOM NAV
+   ========================================================= */
+
+.bottom-nav {
+    position: fixed;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    z-index: 1500;
+
+    height: 70px;
+
+    display: grid;
+grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    background: rgba(255,255,255,0.97);
+
+    border-top: 1px solid #e5e7eb;
+
+    box-shadow:
+        0 -8px 25px rgba(15,23,42,0.08);
+
+    backdrop-filter: blur(12px);
+}
+
+
+.nav-item {
+    border: none;
+    background: transparent;
+    color: #64748b;
+    font-size: 22px;
+    font-weight: 600;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+
+    flex: 1;
+    min-width: 0;
+    padding: 8px 4px;
+    cursor: pointer;
+}
+
+.nav-item small {
+    display: block;
+    margin-top: 2px;
+    font-size: 10px;
+    line-height: 1.3;
+}
+
+.nav-item.active {
+    color: #4f46e5;
+    background: #eef2ff;
+    margin: 4px;
+    border-radius: 13px;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+    .goal-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .performance-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .lesson-info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .auth-screen {
+        padding: 18px 12px;
+    }
+
+    .auth-card {
+        padding: 28px 20px;
+
+        border-radius: 22px;
+    }
+
+    .auth-card h1 {
+        font-size: 29px;
+    }
+
+    .goal-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #goalScreen {
+        padding: 28px 15px;
+    }
+
+    .goal-header h1 {
+        font-size: 29px;
+    }
+
+    .top-header {
+        height: 64px;
+
+        padding: 0 16px;
+    }
+
+    .top-header h1 {
+        font-size: 20px;
+    }
+
+    .dashboard {
+        padding: 28px 16px 100px;
+    }
+
+    .welcome-section h1 {
+        font-size: 36px;
+    }
+
+    /* Four compact boxes remain horizontal */
+    .stats-grid {
+        grid-template-columns:
+            repeat(4, minmax(0, 1fr));
+
+        gap: 6px;
+    }
+
+    .stat-card {
+        min-height: 82px;
+
+        padding: 10px 7px;
+
+        border-radius: 13px;
+    }
+
+    .stat-card > div:first-child {
+        font-size: 16px;
+    }
+
+    .stat-card .number {
+        font-size: 14px;
+    }
+
+    .stat-card .label {
+        font-size: 7.5px;
+
+        white-space: normal;
+
+        line-height: 1.15;
+    }
+
+    .ai-classes-home-card {
+        align-items: flex-start;
+
+        padding: 20px;
+
+        gap: 13px;
+    }
+
+    .ai-classes-home-icon {
+        width: 50px;
+        height: 50px;
+
+        font-size: 24px;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+    }
+
+    .dashboard-card:last-child .goal-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .app-screen {
+        padding: 25px 16px 100px;
+    }
+
+    .performance-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .big-number {
+        font-size: 43px;
+    }
+
+    .blackboard {
+        padding: 20px;
+
+        min-height: 240px;
+    }
+
+    #boardTitle {
+        font-size: 23px;
+    }
+
+    .class-controls {
+        flex-wrap: wrap;
+    }
+
+    .bottom-nav {
+        height: 65px;
+    }
+
+    .nav-item {
+        font-size: 15px;
+    }
+
+    .nav-item small {
+        font-size: 9px;
+    }
+}
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px !important;
+    line-height: 1.4;
+}
+
+.nav-item small {
+    font-size: 10px;
+    line-height: 1.3;
+}
+/* =========================================================
+   PREMIUM FULL ROADMAP
+   ========================================================= */
+
+#roadmapScreen {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 35px 28px 110px;
+}
+
+#roadmapScreen .screen-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+#roadmapScreen .screen-header h2 {
+    margin: 4px 0 0;
+    font-size: 34px;
+    font-weight: 800;
+    color: #111827;
+}
+
+#backFromRoadmap {
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 13px;
+
+    background: white;
+    color: #334155;
+
+    font-size: 22px;
+
+    box-shadow: 0 5px 15px rgba(15,23,42,.06);
+}
+
+
+/* ================================
+   GOAL CARD
+   ================================ */
+
+#roadmapScreen .roadmap-goal-card {
+    position: relative;
+    overflow: hidden;
+
+    padding: 28px 30px;
+    margin-bottom: 28px;
+
+    border: 1px solid #ddd6fe;
+    border-radius: 23px;
+
+    background:
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(129,140,248,.20),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #f5f3ff
+        );
+
+    box-shadow:
+        0 10px 30px rgba(15,23,42,.06);
+}
+
+#roadmapScreen .roadmap-goal-card .small-text {
+    margin-bottom: 8px;
+}
+
+#roadmapScreen #roadmapGoalTitle {
+    margin: 0 0 8px;
+
+    font-size: 28px;
+    font-weight: 800;
+
+    color: #312e81;
+}
+
+#roadmapScreen .roadmap-goal-card > p:last-child {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+
+/* ================================
+   ROADMAP CONTAINER
+   ================================ */
+
+#roadmapScreen .full-roadmap {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+
+    width: 100%;
+}
+
+
+/* ================================
+   EACH ROADMAP CARD
+   ================================ */
+
+#roadmapScreen .roadmap-node {
+    position: relative;
+
+    width: 100%;
+    min-height: 125px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 22px 25px;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 21px;
+
+    background: white;
+
+    box-shadow:
+        0 7px 24px rgba(15,23,42,.06);
+
+    transition: all .22s ease;
+}
+
+#roadmapScreen .roadmap-node:hover {
+    transform: translateY(-3px);
+
+    border-color: #c7d2fe;
+
+    box-shadow:
+        0 14px 32px rgba(79,70,229,.12);
+}
+
+
+/* ================================
+   1 / 2 / 3 NUMBER
+   ================================ */
+
+#roadmapScreen .roadmap-number {
+    flex-shrink: 0;
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 21px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5,
+            #8b5cf6
+        );
+
+    color: white;
+
+    font-size: 19px;
+    font-weight: 800;
+
+    box-shadow:
+        0 9px 20px rgba(79,70,229,.23);
+}
+
+
+/* ================================
+   ROADMAP TEXT
+   ================================ */
+
+#roadmapScreen .roadmap-content {
+    flex: 1;
+}
+
+#roadmapScreen .roadmap-content h3 {
+    margin: 0 0 7px;
+
+    font-size: 19px;
+    font-weight: 800;
+
+    color: #111827;
+}
+
+#roadmapScreen .roadmap-content p {
+    margin: 0 0 13px;
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+/* ================================
+   START CLASS
+   ================================ */
+
+#roadmapScreen .roadmap-class-btn {
+    min-height: 38px;
+
+    padding: 0 15px;
+
+    border: none;
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5,
+            #7c3aed
+        );
+
+    color: white;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    box-shadow:
+        0 6px 15px rgba(79,70,229,.18);
+
+    transition: .2s ease;
+}
+
+#roadmapScreen .roadmap-class-btn:hover:not(:disabled) {
+    transform: translateY(-1px);
+}
+
+#roadmapScreen .roadmap-class-btn:disabled {
+    cursor: not-allowed;
+
+    background: #f1f5f9;
+    color: #94a3b8;
+
+    border: 1px solid #e2e8f0;
+
+    box-shadow: none;
+}
+
+
+/* ================================
+   JOURNEY LINE
+   ================================ */
+
+#roadmapScreen .roadmap-node:not(:last-child)::after {
+    content: "";
+
+    position: absolute;
+
+    left: 52px;
+    bottom: -18px;
+
+    width: 3px;
+    height: 18px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #818cf8,
+            #ddd6fe
+        );
+
+    z-index: 2;
+}
+
+
+/* ================================
+   MOBILE
+   ================================ */
+
+@media (max-width: 600px) {
+
+    #roadmapScreen {
+        padding: 25px 15px 100px;
+    }
+
+    #roadmapScreen .screen-header h2 {
+        font-size: 26px;
+    }
+
+    #roadmapScreen .roadmap-goal-card {
+        padding: 22px 19px;
+    }
+
+    #roadmapScreen #roadmapGoalTitle {
+        font-size: 23px;
+    }
+
+    #roadmapScreen .roadmap-node {
+        min-height: 110px;
+        padding: 17px;
+    }
+
+    #roadmapScreen .roadmap-number {
+        width: 45px;
+        height: 45px;
+        margin-right: 13px;
+        font-size: 15px;
+    }
+
+    #roadmapScreen .roadmap-content h3 {
+        font-size: 16px;
+    }
+
+    #roadmapScreen .roadmap-content p {
+        font-size: 11px;
+    }
+
+    #roadmapScreen .roadmap-node:not(:last-child)::after {
+        left: 38px;
+        bottom: -18px;
+    }
+}
+/* =========================================================
+   FINAL HOME ROADMAP + HEADER + NAV FIX
+   ========================================================= */
+
+
+/* =========================================================
+   1. TOP HEADER / MENU BUTTON RESTORE
+   ========================================================= */
+
+.top-header {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 70px;
+
+    padding: 0 28px;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border-bottom: 1px solid #e5e7eb;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 900;
+
+    backdrop-filter: blur(12px);
+}
+
+.top-header h1 {
+    margin: 0;
+
+    font-size: 23px;
+    font-weight: 800;
+
+    color: #172554;
+}
+
+.menu-button {
+    width: 45px;
+    height: 45px;
+
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 13px;
+
+    background: white;
+
+    color: #1e293b;
+
+    font-size: 21px;
+
+    box-shadow:
+        0 5px 15px rgba(15, 23, 42, 0.06);
+}
+
+
+/* =========================================================
+   2. HOMEPAGE ROADMAP = HORIZONTAL
+   ========================================================= */
+
+#homeRoadmap {
+    width: 100%;
+
+    display: flex;
+
+    align-items: stretch;
+
+    gap: 0;
+
+    overflow-x: auto;
+
+    padding: 8px 4px 18px;
+
+    scrollbar-width: thin;
+}
+
+
+/* Each roadmap step */
+
+#homeRoadmap .roadmap-step {
+    position: relative;
+
+    flex: 0 0 210px;
+
+    min-height: 145px;
+
+    padding: 20px 17px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 19px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f8f8ff
+        );
+
+    box-shadow:
+        0 7px 20px rgba(15, 23, 42, 0.06);
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        border-color .2s ease;
+}
+
+#homeRoadmap .roadmap-step:hover {
+    transform: translateY(-4px);
+
+    border-color: #c7d2fe;
+
+    box-shadow:
+        0 14px 28px rgba(79, 70, 229, 0.12);
+}
+
+
+/* Current step */
+
+#homeRoadmap .roadmap-step.current {
+    border: 2px solid #6366f1;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #eef2ff
+        );
+}
+
+
+/* Locked steps */
+
+#homeRoadmap .roadmap-step.locked {
+    opacity: 0.82;
+}
+
+
+/* =========================================================
+   3. ROADMAP ICON
+   ========================================================= */
+
+#homeRoadmap .roadmap-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 12px;
+
+    border-radius: 15px;
+
+    background: #eef2ff;
+
+    font-size: 23px;
+}
+
+
+/* Current icon */
+
+#homeRoadmap .roadmap-step.current .roadmap-icon {
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5,
+            #8b5cf6
+        );
+
+    box-shadow:
+        0 7px 15px rgba(79, 70, 229, 0.20);
+}
+
+
+/* =========================================================
+   4. ROADMAP TEXT
+   ========================================================= */
+
+#homeRoadmap .roadmap-step h3 {
+    margin: 0 0 6px;
+
+    color: #111827;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    line-height: 1.3;
+}
+
+#homeRoadmap .roadmap-step p {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 11px;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   5. HORIZONTAL CONNECTING LINE
+   ========================================================= */
+
+#homeRoadmap .roadmap-line {
+    flex: 0 0 42px;
+
+    align-self: center;
+
+    height: 3px;
+
+    margin: 0 5px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #818cf8,
+            #c4b5fd
+        );
+
+    position: relative;
+}
+
+
+/* Small connector dot */
+
+#homeRoadmap .roadmap-line::after {
+    content: "";
+
+    position: absolute;
+
+    right: -2px;
+    top: 50%;
+
+    width: 9px;
+    height: 9px;
+
+    transform: translateY(-50%);
+
+    border-radius: 50%;
+
+    background: #8b5cf6;
+}
+
+
+/* =========================================================
+   6. BOTTOM NAV RESTORE
+   ========================================================= */
+
+.bottom-nav {
+    display: grid !important;
+
+    position: fixed;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 100%;
+
+    height: 70px;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    background:
+        rgba(255, 255, 255, 0.97);
+
+    border-top: 1px solid #e5e7eb;
+
+    box-shadow:
+        0 -8px 25px rgba(15, 23, 42, 0.08);
+
+    backdrop-filter: blur(14px);
+
+    z-index: 1500;
+}
+
+
+/* Bottom nav buttons */
+
+.bottom-nav .nav-item {
+    border: none;
+
+    background: transparent;
+
+    color: #64748b;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 3px;
+
+    font-size: 18px;
+
+    transition: .2s ease;
+}
+
+.bottom-nav .nav-item span {
+    display: block;
+
+    font-size: 19px;
+
+    line-height: 1;
+}
+
+.bottom-nav .nav-item small {
+    display: block;
+
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+
+/* Active icon */
+
+.bottom-nav .nav-item.active {
+    color: #4f46e5;
+
+    background: #eef2ff;
+
+    margin: 7px;
+
+    border-radius: 13px;
+}
+
+
+/* =========================================================
+   7. MENU PANEL RESTORE
+   ========================================================= */
+
+.menu-panel {
+    position: fixed;
+
+    top: 0;
+    right: -350px;
+
+    width: min(340px, 88vw);
+    height: 100vh;
+
+    z-index: 2000;
+
+    padding: 24px;
+
+    overflow-y: auto;
+
+    background: white;
+
+    box-shadow:
+        -15px 0 45px rgba(15, 23, 42, 0.16);
+
+    transition: right .25s ease;
+}
+
+.menu-panel.open {
+    right: 0;
+}
+
+.menu-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+}
+
+.menu-panel button {
+    display: block;
+
+    width: 100%;
+
+    min-height: 46px;
+
+    margin-bottom: 8px;
+
+    padding: 0 14px;
+
+    text-align: left;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background: #f8fafc;
+
+    color: #334155;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+.menu-panel button:hover {
+    background: #eef2ff;
+
+    color: #4f46e5;
+}
+
+
+/* =========================================================
+   8. MOBILE HOME ROADMAP
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .top-header {
+        height: 64px;
+
+        padding: 0 16px;
+    }
+
+    .top-header h1 {
+        font-size: 20px;
+    }
+
+    #homeRoadmap {
+        overflow-x: auto;
+
+        padding-bottom: 15px;
+    }
+
+    #homeRoadmap .roadmap-step {
+        flex-basis: 180px;
+
+        min-height: 135px;
+
+        padding: 16px;
+    }
+
+    #homeRoadmap .roadmap-line {
+        flex-basis: 28px;
+    }
+
+    .bottom-nav {
+        height: 65px;
+    }
+
+    .bottom-nav .nav-item span {
+        font-size: 17px;
+    }
+
+    .bottom-nav .nav-item small {
+        font-size: 9px;
+    }
+}
+/* =========================================================
+   FINAL HOMEPAGE ROADMAP FIX
+   HOME = HORIZONTAL
+   ROADMAP PAGE = VERTICAL
+   ========================================================= */
+
+
+/* =========================
+   HOMEPAGE ROADMAP ONLY
+   ========================= */
+
+#homeRoadmap.roadmap {
+    display: flex !important;
+
+    flex-direction: row !important;
+
+    align-items: stretch !important;
+
+    width: 100% !important;
+
+    gap: 0 !important;
+
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+
+    padding: 8px 5px 18px !important;
+
+    scrollbar-width: thin;
+}
+
+
+/* Homepage roadmap cards */
+
+#homeRoadmap .roadmap-step {
+    flex: 0 0 210px !important;
+
+    width: 210px !important;
+
+    min-height: 145px !important;
+
+    padding: 18px !important;
+
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    justify-content: center !important;
+
+    border: 1px solid #e5e7eb !important;
+
+    border-radius: 19px !important;
+
+    background: white !important;
+
+    box-shadow:
+        0 7px 22px rgba(15, 23, 42, 0.07) !important;
+
+    transition: 0.2s ease !important;
+
+    cursor: pointer !important;
+}
+
+
+#homeRoadmap .roadmap-step:hover {
+    transform: translateY(-3px);
+
+    border-color: #c7d2fe !important;
+
+    box-shadow:
+        0 12px 28px rgba(79, 70, 229, 0.12) !important;
+}
+
+
+/* Current module */
+
+#homeRoadmap .roadmap-step.current {
+    border: 2px solid #6366f1 !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #eef2ff
+        ) !important;
+}
+
+
+/* Locked modules */
+
+#homeRoadmap .roadmap-step.locked {
+    opacity: 0.82;
+}
+
+
+/* Roadmap icon */
+
+#homeRoadmap .roadmap-icon {
+    width: 48px !important;
+    height: 48px !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    margin-bottom: 11px !important;
+
+    border-radius: 15px !important;
+
+    background: #eef2ff !important;
+
+    font-size: 23px !important;
+}
+
+
+/* Current icon */
+
+#homeRoadmap .roadmap-step.current .roadmap-icon {
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5,
+            #8b5cf6
+        ) !important;
+
+    color: white;
+
+    box-shadow:
+        0 7px 16px rgba(79, 70, 229, 0.20);
+}
+
+
+/* Module title */
+
+#homeRoadmap .roadmap-step h3 {
+    margin: 0 0 6px !important;
+
+    color: #111827 !important;
+
+    font-size: 15px !important;
+
+    font-weight: 800 !important;
+
+    line-height: 1.3 !important;
+}
+
+
+/* Module subtitle */
+
+#homeRoadmap .roadmap-step p {
+    margin: 0 !important;
+
+    color: #64748b !important;
+
+    font-size: 11px !important;
+
+    line-height: 1.4 !important;
+}
+
+
+/* =========================
+   HORIZONTAL CONNECTOR
+   ========================= */
+
+#homeRoadmap .roadmap-line {
+    flex: 0 0 38px !important;
+
+    width: 38px !important;
+
+    height: 3px !important;
+
+    align-self: center !important;
+
+    margin: 0 5px !important;
+
+    border-radius: 10px !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #818cf8,
+            #c4b5fd
+        ) !important;
+}
+
+
+/* =========================
+   TOP MENU RESTORE
+   ========================= */
+
+.top-header {
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: space-between !important;
+}
+
+
+.menu-button {
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    width: 45px !important;
+    height: 45px !important;
+
+    border: 1px solid #e5e7eb !important;
+
+    border-radius: 13px !important;
+
+    background: white !important;
+
+    font-size: 21px !important;
+
+    color: #1e293b !important;
+}
+
+
+
+/* =========================
+   MOBILE HOMEPAGE ROADMAP
+   ========================= */
+
+@media (max-width: 600px) {
+
+    #homeRoadmap .roadmap-step {
+        flex-basis: 180px !important;
+
+        width: 180px !important;
+
+        min-height: 135px !important;
+    }
+
+    #homeRoadmap .roadmap-line {
+        flex-basis: 28px !important;
+
+        width: 28px !important;
+    }
+
+    .bottom-nav {
+        height: 65px !important;
+    }
+}
+/* =========================================================
+   PREMIUM HORIZONTAL - CONTINUE LEARNING
+   HOMEPAGE ONLY
+   ========================================================= */
+
+#home .continue-learning-card,
+#home .learning-card,
+#home .ai-classes-home-card {
+    width: 100% !important;
+
+    min-height: 145px !important;
+
+    display: flex !important;
+
+    flex-direction: row !important;
+
+    align-items: center !important;
+
+    gap: 22px !important;
+
+    padding: 22px 25px !important;
+
+    margin-bottom: 20px !important;
+
+    border: 1px solid rgba(99, 102, 241, 0.13) !important;
+
+    border-radius: 22px !important;
+
+    background:
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(99, 102, 241, 0.14),
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #f8f8ff
+        ) !important;
+
+    box-shadow:
+        0 10px 30px rgba(15, 23, 42, 0.07) !important;
+
+    overflow: hidden !important;
+
+    transition: all .22s ease !important;
+}
+
+
+/* Hover */
+
+#home .continue-learning-card:hover,
+#home .learning-card:hover,
+#home .ai-classes-home-card:hover {
+    transform: translateY(-3px) !important;
+
+    border-color: #c7d2fe !important;
+
+    box-shadow:
+        0 16px 35px rgba(79, 70, 229, 0.12) !important;
+}
+
+
+/* =========================================================
+   LEFT ICON
+   ========================================================= */
+
+#home .continue-learning-card .learning-icon,
+#home .learning-card .learning-icon,
+#home .ai-classes-home-card .ai-classes-home-icon {
+    flex: 0 0 65px !important;
+
+    width: 65px !important;
+    height: 65px !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    border-radius: 19px !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5,
+            #8b5cf6
+        ) !important;
+
+    color: white !important;
+
+    font-size: 29px !important;
+
+    box-shadow:
+        0 9px 20px rgba(79, 70, 229, 0.22) !important;
+}
+
+
+/* =========================================================
+   CENTER CONTENT
+   ========================================================= */
+
+#home .continue-learning-content,
+#home .learning-content,
+#home .ai-classes-home-content {
+    flex: 1 !important;
+
+    min-width: 0 !important;
+
+    text-align: left !important;
+}
+
+#home .continue-learning-content .small-text,
+#home .learning-content .small-text,
+#home .ai-classes-home-content .small-text {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #6366f1;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.3px;
+
+    text-transform: uppercase;
+}
+
+#home .continue-learning-content h2,
+#home .continue-learning-content h3,
+#home .learning-content h2,
+#home .learning-content h3,
+#home .ai-classes-home-content h2 {
+    margin: 0 0 5px !important;
+
+    color: #111827 !important;
+
+    font-size: 20px !important;
+
+    font-weight: 800 !important;
+}
+
+#home .continue-learning-content p,
+#home .learning-content p,
+#home .ai-classes-home-content p {
+    margin: 0 0 10px !important;
+
+    color: #64748b !important;
+
+    font-size: 12px !important;
+
+    line-height: 1.5 !important;
+}
+
+
+/* =========================================================
+   PROGRESS
+   ========================================================= */
+
+#home .continue-learning-progress {
+    width: 100%;
+
+    max-width: 380px;
+
+    height: 6px;
+
+    overflow: hidden;
+
+    margin-top: 8px;
+
+    border-radius: 10px;
+
+    background: #e5e7eb;
+}
+
+#home .continue-learning-progress span {
+    display: block;
+
+    width: 0%;
+
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            #4f46e5,
+            #8b5cf6
+        );
+}
+
+
+/* =========================================================
+   RIGHT BUTTON
+   ========================================================= */
+
+#home .continue-learning-card .continue-btn,
+#home .learning-card .continue-btn,
+#home .ai-classes-home-card button {
+    flex-shrink: 0 !important;
+
+    width: auto !important;
+
+    min-width: 145px !important;
+
+    min-height: 44px !important;
+
+    padding: 0 17px !important;
+
+    border: none !important;
+
+    border-radius: 12px !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5,
+            #7c3aed
+        ) !important;
+
+    color: white !important;
+
+    font-size: 12px !important;
+
+    font-weight: 800 !important;
+
+    box-shadow:
+        0 7px 16px rgba(79, 70, 229, 0.20) !important;
+
+    transition: .2s ease !important;
+}
+
+#home .continue-learning-card .continue-btn:hover,
+#home .learning-card .continue-btn:hover,
+#home .ai-classes-home-card button:hover {
+    transform: translateY(-2px) !important;
+
+    box-shadow:
+        0 10px 22px rgba(79, 70, 229, 0.27) !important;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    #home .continue-learning-card,
+    #home .learning-card,
+    #home .ai-classes-home-card {
+        min-height: 120px !important;
+
+        gap: 13px !important;
+
+        padding: 17px !important;
+    }
+
+    #home .continue-learning-card .learning-icon,
+    #home .learning-card .learning-icon,
+    #home .ai-classes-home-card .ai-classes-home-icon {
+        flex-basis: 50px !important;
+
+        width: 50px !important;
+        height: 50px !important;
+
+        font-size: 23px !important;
+    }
+
+    #home .continue-learning-content h2,
+    #home .continue-learning-content h3,
+    #home .learning-content h2,
+    #home .learning-content h3,
+    #home .ai-classes-home-content h2 {
+        font-size: 16px !important;
+    }
+
+    #home .continue-learning-content p,
+    #home .learning-content p,
+    #home .ai-classes-home-content p {
+        font-size: 10px !important;
+    }
+
+    #home .continue-learning-card .continue-btn,
+    #home .learning-card .continue-btn,
+    #home .ai-classes-home-card button {
+        min-width: 105px !important;
+
+        min-height: 38px !important;
+
+        padding: 0 10px !important;
+
+        font-size: 10px !important;
+    }
+}
+/* =====================================================
+   HOMEPAGE - COMPACT CONTINUE LEARNING CARDS
+   ===================================================== */
+
+#home .ai-classes-home-card {
+    padding: 18px 20px !important;
+    min-height: auto !important;
+
+    border-radius: 20px !important;
+}
+
+
+/* Title area */
+
+#home .ai-classes-home-card > h2,
+#home .ai-classes-home-card > h3 {
+    margin-bottom: 14px !important;
+}
+
+
+/* Cards container */
+
+#home .ai-classes-home-card .goal-grid,
+#home .ai-classes-home-card .quick-container,
+#home .ai-classes-home-card .learning-list {
+    display: flex !important;
+
+    flex-direction: row !important;
+
+    flex-wrap: nowrap !important;
+
+    gap: 12px !important;
+
+    overflow-x: auto !important;
+
+    width: 100% !important;
+
+    padding: 3px 2px 10px !important;
+}
+
+
+/* EACH SMALL CARD */
+
+#home .ai-classes-home-card .quick-card,
+#home .ai-classes-home-card .learning-card,
+#home .ai-classes-home-card .class-card {
+    flex: 0 0 190px !important;
+
+    width: 190px !important;
+
+    min-height: 92px !important;
+
+    padding: 14px !important;
+
+    margin: 0 !important;
+
+    display: flex !important;
+
+    flex-direction: row !important;
+
+    align-items: center !important;
+
+    gap: 11px !important;
+
+    border-radius: 16px !important;
+
+    border: 1px solid #e5e7eb !important;
+
+    background: #ffffff !important;
+
+    box-shadow:
+        0 5px 16px rgba(15,23,42,.06) !important;
+
+    transition: .2s ease !important;
+}
+
+
+#home .ai-classes-home-card .quick-card:hover,
+#home .ai-classes-home-card .learning-card:hover,
+#home .ai-classes-home-card .class-card:hover {
+    transform: translateY(-2px) !important;
+
+    border-color: #c7d2fe !important;
+
+    box-shadow:
+        0 9px 22px rgba(79,70,229,.11) !important;
+}
+
+
+/* SMALL ICON */
+
+#home .ai-classes-home-card .quick-card-icon,
+#home .ai-classes-home-card .learning-icon,
+#home .ai-classes-home-card .class-icon {
+    flex: 0 0 40px !important;
+
+    width: 40px !important;
+
+    height: 40px !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    border-radius: 12px !important;
+
+    background: #eef2ff !important;
+
+    font-size: 19px !important;
+}
+
+
+/* TEXT */
+
+#home .ai-classes-home-card .quick-card h3,
+#home .ai-classes-home-card .learning-card h3,
+#home .ai-classes-home-card .class-card h3 {
+    margin: 0 !important;
+
+    font-size: 13px !important;
+
+    font-weight: 800 !important;
+
+    color: #111827 !important;
+
+    line-height: 1.25 !important;
+}
+
+
+#home .ai-classes-home-card .quick-card p,
+#home .ai-classes-home-card .learning-card p,
+#home .ai-classes-home-card .class-card p {
+    margin: 3px 0 0 !important;
+
+    font-size: 10px !important;
+
+    color: #64748b !important;
+}
+
+
+/* SMALL ARROW / BUTTON */
+
+#home .ai-classes-home-card .quick-card button,
+#home .ai-classes-home-card .learning-card button,
+#home .ai-classes-home-card .class-card button {
+    flex-shrink: 0 !important;
+
+    width: 30px !important;
+
+    height: 30px !important;
+
+    min-width: 30px !important;
+
+    padding: 0 !important;
+
+    margin-left: auto !important;
+
+    border: none !important;
+
+    border-radius: 9px !important;
+
+    background: #eef2ff !important;
+
+    color: #4f46e5 !important;
+
+    font-size: 14px !important;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    #home .ai-classes-home-card .quick-card,
+    #home .ai-classes-home-card .learning-card,
+    #home .ai-classes-home-card .class-card {
+        flex-basis: 175px !important;
+
+        width: 175px !important;
+
+        min-height: 82px !important;
+
+        padding: 11px !important;
+    }
+}
+/* =========================================================
+   CONTINUE LEARNING
+   3 COMPACT HORIZONTAL CARDS
+   ========================================================= */
+
+#home .dashboard-card .goal-grid {
+    display: grid !important;
+
+    grid-template-columns: repeat(3, 1fr) !important;
+
+    gap: 14px !important;
+
+    width: 100% !important;
+}
+
+
+/* EACH CARD */
+
+#home .dashboard-card .goal-grid .goal-card {
+    width: 100% !important;
+
+    min-width: 0 !important;
+
+    min-height: 92px !important;
+
+    padding: 14px 16px !important;
+
+    margin: 0 !important;
+
+    display: grid !important;
+
+    grid-template-columns: 40px 1fr !important;
+
+    grid-template-rows: auto auto !important;
+
+    column-gap: 12px !important;
+
+    align-items: center !important;
+
+    text-align: left !important;
+
+    border: 1px solid #e5e7eb !important;
+
+    border-radius: 17px !important;
+
+    background: #ffffff !important;
+
+    box-shadow:
+        0 5px 18px rgba(15, 23, 42, 0.06) !important;
+
+    transition: all 0.2s ease !important;
+}
+
+
+/* ICON */
+
+#home .dashboard-card .goal-grid .goal-card > span {
+    grid-row: 1 / 3 !important;
+
+    width: 40px !important;
+
+    height: 40px !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    border-radius: 12px !important;
+
+    background: #eef2ff !important;
+
+    font-size: 19px !important;
+}
+
+
+/* TITLE */
+
+#home .dashboard-card .goal-grid .goal-card h3 {
+    margin: 0 !important;
+
+    font-size: 13px !important;
+
+    line-height: 1.2 !important;
+
+    font-weight: 800 !important;
+
+    color: #111827 !important;
+}
+
+
+/* DESCRIPTION */
+
+#home .dashboard-card .goal-grid .goal-card p {
+    margin: 3px 0 0 !important;
+
+    font-size: 10px !important;
+
+    line-height: 1.2 !important;
+
+    color: #64748b !important;
+}
+
+
+/* HOVER */
+
+#home .dashboard-card .goal-grid .goal-card:hover {
+    transform: translateY(-3px) !important;
+
+    border-color: #c7d2fe !important;
+
+    box-shadow:
+        0 10px 24px rgba(79, 70, 229, 0.10) !important;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    #home .dashboard-card .goal-grid {
+        grid-template-columns: repeat(3, minmax(150px, 1fr)) !important;
+
+        overflow-x: auto !important;
+
+        padding-bottom: 8px !important;
+    }
+
+    #home .dashboard-card .goal-grid .goal-card {
+        min-width: 150px !important;
+
+        min-height: 82px !important;
+
+        padding: 11px !important;
+    }
+}
+/* =====================================================
+   LOGIN PAGE - CENTER FIX
+   ===================================================== */
+
+#loginScreen {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#loginScreen .login-container,
+#loginScreen .login-box,
+#loginScreen .auth-card,
+#loginScreen .auth-container {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+#loginScreen > div {
+    margin-left: auto;
+    margin-right: auto;
+}
+/* =====================================================
+   SIGNUP + FORGOT PASSWORD - CENTER FIX
+   ===================================================== */
+
+#signupScreen,
+#forgotScreen {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#signupScreen > div,
+#forgotScreen > div {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Keep the form/card centered */
+#signupScreen .login-container,
+#signupScreen .login-box,
+#signupScreen .auth-card,
+#signupScreen .auth-container,
+#forgotScreen .login-container,
+#forgotScreen .login-box,
+#forgotScreen .auth-card,
+#forgotScreen .auth-container {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Prevent forms from sticking to the left */
+#signupScreen form,
+#forgotScreen form {
+    margin-left: auto;
+    margin-right: auto;
+}
+/* =====================================================
+   SKILLMIRROR AI — PREMIUM AI CLASSROOM
+===================================================== */
+
+.ai-class-screen {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 22px;
+    box-sizing: border-box;
+    background: #050b16;
+    color: #ffffff;
+    min-height: calc(100vh - 90px);
+}
+
+.ai-class-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.ai-back-btn {
+    width: 46px;
+    height: 46px;
+    border: 1px solid #263552;
+    border-radius: 14px;
+    background: #0c1628;
+    color: white;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.ai-class-label {
+    margin: 0 0 4px;
+    color: #8ea7ff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.ai-class-header h1,
+.separate-screen-header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.ai-class-header p:last-child {
+    margin: 5px 0 0;
+    color: #94a3b8;
+}
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+.class-progress-wrap {
+    width: 100%;
+    height: 5px;
+    background: #17233a;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.class-progress-fill {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        #6366f1,
+        #38bdf8
+    );
+    transition: width .4s ease;
+}
+
+.class-progress-text {
+    text-align: right;
+    color: #94a3b8;
+    font-size: 11px;
+    margin: 6px 0 14px;
+}
+
+
+/* =====================================================
+   CLASSROOM
+===================================================== */
+
+.ai-classroom {
+    background: #080f1c;
+    border: 1px solid #1d2b44;
+    border-radius: 24px;
+    padding: 18px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.35);
+}
+
+
+/* =====================================================
+   FEMALE AI TEACHER
+===================================================== */
+
+.teacher-area {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 15px;
+}
+
+.teacher-photo {
+    width: 68px;
+    height: 68px;
+    border-radius: 20px;
+    background: #111d32;
+    border: 1px solid #33466b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 38px;
+}
+
+.teacher-info h2 {
+    margin: 0;
+    font-size: 17px;
+}
+
+.teacher-info p {
+    margin: 5px 0;
+    color: #aab7cc;
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   TEACHER VOICE WAVE
+===================================================== */
+
+.voice-wave {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    height: 20px;
+}
+
+.voice-wave span {
+    width: 4px;
+    height: 8px;
+    border-radius: 5px;
+    background: #6366f1;
+}
+
+.ai-class-screen.speaking
+.voice-wave span:nth-child(1) {
+    animation: voiceWave .7s infinite;
+}
+
+.ai-class-screen.speaking
+.voice-wave span:nth-child(2) {
+    animation: voiceWave .55s infinite .1s;
+}
+
+.ai-class-screen.speaking
+.voice-wave span:nth-child(3) {
+    animation: voiceWave .8s infinite .2s;
+}
+
+.ai-class-screen.speaking
+.voice-wave span:nth-child(4) {
+    animation: voiceWave .6s infinite .15s;
+}
+
+.ai-class-screen.speaking
+.voice-wave span:nth-child(5) {
+    animation: voiceWave .75s infinite .05s;
+}
+
+@keyframes voiceWave {
+
+    0%,
+    100% {
+        height: 7px;
+    }
+
+    50% {
+        height: 19px;
+    }
+}
+
+
+/* =====================================================
+   PREMIUM BLACKBOARD
+===================================================== */
+
+.premium-blackboard {
+    background: #111827;
+    border-radius: 20px;
+    padding: 10px;
+    border: 1px solid #263754;
+}
+
+.blackboard-frame {
+    border: 2px solid #3b4658;
+    border-radius: 15px;
+    padding: 7px;
+}
+
+.blackboard {
+    position: relative;
+    min-height: 370px;
+    padding: 32px;
+    box-sizing: border-box;
+    border-radius: 10px;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255,255,255,.025),
+            transparent 30%
+        ),
+        #101820;
+
+    overflow: hidden;
+}
+
+.board-label {
+    color: #6ee7b7;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.blackboard h2 {
+    color: #ffffff;
+    font-size: 30px;
+    margin: 0 0 20px;
+    font-family: Georgia, serif;
+}
+
+.board-writing {
+    color: #f8fafc;
+    font-family:
+        "Comic Sans MS",
+        "Segoe Print",
+        cursive;
+
+    font-size: 21px;
+    line-height: 1.7;
+    white-space: pre-line;
+}
+
+.board-example {
+    margin-top: 22px;
+    padding: 16px;
+
+    border-left: 4px solid #facc15;
+
+    background: rgba(255,255,255,.06);
+
+    color: #fde68a;
+
+    font-family:
+        "Comic Sans MS",
+        "Segoe Print",
+        cursive;
+
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.board-cursor {
+    position: absolute;
+    right: 30px;
+    bottom: 25px;
+    color: #f8fafc;
+    font-size: 24px;
+}
+
+
+/* =====================================================
+   START / CONTINUE / STOP
+===================================================== */
+
+.teacher-controls {
+    display: grid;
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.teacher-controls button {
+    min-height: 58px;
+
+    border: 1px solid #263b61;
+    border-radius: 14px;
+
+    background: #0d182b;
+    color: white;
+
+    cursor: pointer;
+
+    font-weight: 800;
+    font-size: 14px;
+
+    transition: .2s ease;
+}
+
+.teacher-controls button:hover {
+    background: #152441;
+    border-color: #6366f1;
+    transform: translateY(-1px);
+}
+
+.teacher-controls button span {
+    margin-left: 7px;
+}
+
+
+/* =====================================================
+   SEPARATE ASK TEACHER / QUESTIONS SCREENS
+===================================================== */
+
+.separate-learning-screen {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+
+    padding: 24px;
+
+    min-height: calc(100vh - 90px);
+
+    background: #050b16;
+    color: white;
+
+    box-sizing: border-box;
+}
+
+.separate-screen-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.ask-teacher-card,
+.question-card {
+    background: #0b1526;
+
+    border: 1px solid #223453;
+
+    border-radius: 22px;
+
+    padding: 25px;
+}
+
+.teacher-chat-icon {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.ask-teacher-card h2,
+.question-card h2 {
+    margin-top: 0;
+}
+
+.ask-teacher-card p {
+    color: #94a3b8;
+}
+
+
+/* =====================================================
+   ASK TEACHER
+===================================================== */
+
+#separateDoubtInput {
+    width: 100%;
+    min-height: 130px;
+
+    resize: vertical;
+
+    box-sizing: border-box;
+
+    background: #07101e;
+    color: white;
+
+    border: 1px solid #263b61;
+    border-radius: 14px;
+
+    padding: 15px;
+    margin-top: 15px;
+}
+
+#separateAskBtn,
+.submit-answer-btn {
+    margin-top: 12px;
+
+    padding: 13px 20px;
+
+    border: 0;
+    border-radius: 12px;
+
+    background: #6366f1;
+    color: white;
+
+    font-weight: 800;
+    cursor: pointer;
+}
+
+#separateTeacherResponse,
+#classQuestionFeedback {
+    margin-top: 15px;
+
+    padding: 14px;
+
+    border-radius: 12px;
+
+    background: #111d31;
+    color: #dbeafe;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   QUESTIONS
+===================================================== */
+
+.question-progress {
+    text-align: right;
+
+    color: #8ea7ff;
+
+    font-weight: 700;
+
+    margin-bottom: 20px;
+}
+
+.answer-options {
+    display: grid;
+    gap: 11px;
+}
+
+.answer-option {
+    width: 100%;
+
+    text-align: left;
+
+    padding: 15px;
+
+    border: 1px solid #263b61;
+    border-radius: 13px;
+
+    background: #0a1424;
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    transition: .2s ease;
+}
+
+.answer-option:hover {
+    border-color: #6366f1;
+}
+
+.answer-option.selected {
+    border-color: #818cf8;
+    background: #182449;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .ai-class-screen {
+        padding: 14px;
+    }
+
+    .ai-class-header h1 {
+        font-size: 22px;
+    }
+
+    .blackboard {
+        min-height: 320px;
+        padding: 22px;
+    }
+
+    .blackboard h2 {
+        font-size: 24px;
+    }
+
+    .board-writing {
+        font-size: 17px;
+    }
+
+    .teacher-controls {
+        grid-template-columns: 1fr;
+    }
+
+    .teacher-controls button {
+        min-height: 52px;
+    }
+
+}
+/* ==================================================
+   SKILLMIRROR - SCREEN VISIBILITY FIX
+   ================================================== */
+
+/* Only Login is visible when website first opens */
+#loginScreen {
+    display: flex;
+}
+/* =========================================================
+   FINAL AI CLASS VISIBILITY FIX
+   Keep teacher controls above bottom navigation
+   ========================================================= */
+
+.ai-class-screen {
+    position: relative;
+    z-index: 1;
+    padding-bottom: 145px !important;
+}
+
+.ai-classroom {
+    position: relative;
+    z-index: 2;
+    padding-bottom: 25px !important;
+}
+
+/* START / CONTINUE / STOP buttons clearly visible */
+.teacher-controls {
+    position: relative;
+    z-index: 10;
+
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+
+    gap: 12px !important;
+
+    margin-top: 20px !important;
+    margin-bottom: 35px !important;
+
+    padding: 0 5px 10px !important;
+}
+
+.teacher-controls button {
+    position: relative;
+    z-index: 11;
+
+    min-height: 60px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Bottom navigation stays below classroom controls */
+.bottom-nav {
+    z-index: 1500 !important;
+}
+
+/* Extra space on smaller screens */
+@media (max-width: 700px) {
+
+    .ai-class-screen {
+        padding-bottom: 155px !important;
+    }
+
+    .teacher-controls {
+        grid-template-columns: 1fr !important;
+
+        margin-bottom: 35px !important;
+        padding-bottom: 15px !important;
+    }
+
+    .teacher-controls button {
+        min-height: 54px !important;
+    }
+}
+/* =========================================================
+   PREMIUM CAREER ROADMAP
+   ========================================================= */
+
+#roadmapScreen {
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(99, 102, 241, 0.10),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #f8faff 0%,
+            #ffffff 55%,
+            #f5f7ff 100%
+        );
+
+    min-height: 100vh;
+    padding-bottom: 100px;
+}
+
+
+/* Roadmap heading */
+
+#roadmapGoalTitle {
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -0.8px;
+
+    background: linear-gradient(
+        90deg,
+        #111827,
+        #4f46e5
+    );
+
+    
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+
+margin-bottom: 8px;
+}
+
+
+/* Main roadmap container */
+
+#fullRoadmap {
+    position: relative;
+
+    max-width: 850px;
+
+    margin: 25px auto;
+
+    padding: 10px 10px 30px;
+}
+
+
+/* Vertical timeline */
+
+#fullRoadmap::before {
+    content: "";
+
+    position: absolute;
+
+    left: 35px;
+    top: 25px;
+    bottom: 35px;
+
+    width: 3px;
+
+    background: linear-gradient(
+        180deg,
+        #6366f1,
+        #8b5cf6,
+        #c7d2fe
+    );
+
+    border-radius: 10px;
+}
+
+
+/* Individual roadmap step */
+
+.roadmap-step {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    min-height: 95px;
+
+    margin-bottom: 18px;
+
+    padding: 18px 22px 18px 70px;
+
+    background: rgba(255,255,255,0.88);
+
+    border: 1px solid rgba(226,232,240,0.9);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 8px 25px rgba(15,23,42,0.06),
+        0 2px 6px rgba(15,23,42,0.04);
+
+    backdrop-filter: blur(12px);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+/* Premium hover */
+
+.roadmap-step:hover {
+    transform: translateY(-3px);
+
+    border-color: rgba(99,102,241,0.35);
+
+    box-shadow:
+        0 15px 35px rgba(79,70,229,0.12),
+        0 4px 10px rgba(15,23,42,0.06);
+}
+
+
+/* Step number */
+
+.roadmap-step-number {
+    position: absolute;
+
+    left: 10px;
+
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        #4f46e5,
+        #7c3aed
+    );
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: 800;
+
+    border: 5px solid #f8faff;
+
+    box-shadow:
+        0 6px 18px rgba(79,70,229,0.28);
+}
+
+
+/* Step content */
+
+.roadmap-step-content {
+    flex: 1;
+}
+
+
+.roadmap-step-content h3 {
+    margin: 0 0 7px;
+
+    color: #111827;
+
+    font-size: 17px;
+    font-weight: 750;
+
+    letter-spacing: -0.2px;
+}
+
+
+.roadmap-step-content p {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* First step special glow */
+
+.roadmap-step:first-child {
+    border-color: rgba(99,102,241,0.35);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(238,242,255,0.95),
+            rgba(255,255,255,0.95)
+        );
+}
+
+
+/* Empty roadmap */
+
+.empty-roadmap {
+    padding: 35px 25px;
+
+    text-align: center;
+
+    background: white;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 20px;
+
+    color: #64748b;
+
+    font-weight: 600;
+
+    box-shadow:
+        0 10px 30px rgba(15,23,42,0.06);
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    #roadmapGoalTitle {
+        font-size: 25px;
+    }
+
+    #fullRoadmap {
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+
+    #fullRoadmap::before {
+        left: 27px;
+    }
+
+    .roadmap-step {
+        min-height: 85px;
+
+        padding:
+            16px
+            15px
+            16px
+            58px;
+
+        border-radius: 17px;
+    }
+
+    .roadmap-step-number {
+        left: 6px;
+
+        width: 43px;
+        height: 43px;
+
+        font-size: 14px;
+    }
+
+    .roadmap-step-content h3 {
+        font-size: 15px;
+    }
+}
+    /* =========================================================
+   PREMIUM PERSONALIZED HOME ROADMAP
+   ========================================================= */
+
+#homeRoadmap {
+    display: flex !important;
+    align-items: stretch !important;
+    gap: 14px !important;
+
+    width: 100% !important;
+
+    padding: 12px 4px 22px !important;
+
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+
+    scrollbar-width: none;
+}
+
+#homeRoadmap::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* Roadmap card */
+
+#homeRoadmap .roadmap-item {
+    position: relative;
+
+    flex: 0 0 215px !important;
+
+    min-height: 145px !important;
+
+    padding: 20px !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+
+    border-radius: 22px !important;
+
+    border: 1px solid #e2e8f0 !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff 0%,
+            #f8faff 100%
+        ) !important;
+
+    box-shadow:
+        0 10px 28px rgba(15, 23, 42, 0.07) !important;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease !important;
+
+    cursor: pointer !important;
+
+    overflow: hidden;
+}
+
+
+/* Top shine */
+
+#homeRoadmap .roadmap-item::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #4f46e5,
+            #8b5cf6
+        );
+}
+
+
+/* Hover */
+
+#homeRoadmap .roadmap-item:hover {
+    transform: translateY(-5px) !important;
+
+    border-color: #c7d2fe !important;
+
+    box-shadow:
+        0 18px 38px rgba(79, 70, 229, 0.14) !important;
+}
+
+
+/* Number circle */
+
+#homeRoadmap .roadmap-number {
+    width: 42px !important;
+    height: 42px !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    margin-bottom: 16px !important;
+
+    border-radius: 14px !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef2ff,
+            #ddd6fe
+        ) !important;
+
+    color: #4f46e5 !important;
+
+    font-size: 15px !important;
+
+    font-weight: 800 !important;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(99,102,241,0.08);
+}
+
+
+/* First step */
+
+#homeRoadmap .roadmap-item:first-child {
+    border-color: #c7d2fe !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #eef2ff
+        ) !important;
+}
+
+
+#homeRoadmap .roadmap-item:first-child
+.roadmap-number {
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5,
+            #7c3aed
+        ) !important;
+
+    color: white !important;
+
+    box-shadow:
+        0 7px 18px rgba(79,70,229,0.25);
+}
+
+
+/* Course title */
+
+#homeRoadmap .roadmap-content h4 {
+    margin: 0 0 7px !important;
+
+    color: #111827 !important;
+
+    font-size: 15px !important;
+
+    font-weight: 800 !important;
+
+    line-height: 1.35 !important;
+}
+
+
+/* Subtitle */
+
+#homeRoadmap .roadmap-content p {
+    margin: 0 !important;
+
+    color: #64748b !important;
+
+    font-size: 11px !important;
+
+    font-weight: 600 !important;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    #homeRoadmap {
+        gap: 12px !important;
+
+        padding:
+            10px 3px 20px !important;
+    }
+
+    #homeRoadmap .roadmap-item {
+        flex: 0 0 190px !important;
+
+        min-height: 135px !important;
+
+        padding: 17px !important;
+
+        border-radius: 19px !important;
+    }
+
+    #homeRoadmap .roadmap-number {
+        width: 38px !important;
+        height: 38px !important;
+
+        margin-bottom: 13px !important;
+    }
+
+    #homeRoadmap .roadmap-content h4 {
+        font-size: 14px !important;
+    }
+}
+/* =========================================================
+   HOME ROADMAP - CONTINUE CARD
+   ========================================================= */
+
+#homeRoadmap .roadmap-continue {
+    flex: 0 0 150px !important;
+
+    min-height: 145px !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    text-align: center !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            #eef2ff,
+            #f5f3ff
+        ) !important;
+
+    border: 1px dashed #a5b4fc !important;
+
+    cursor: pointer !important;
+}
+
+
+#homeRoadmap .roadmap-continue:hover {
+    transform: translateY(-5px) !important;
+
+    border-style: solid !important;
+
+    box-shadow:
+        0 16px 35px rgba(79,70,229,0.16) !important;
+}
+
+
+#homeRoadmap .roadmap-continue::before {
+    display: none !important;
+}
+
+
+#homeRoadmap .roadmap-continue-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 10px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5,
+            #7c3aed
+        );
+
+    color: white;
+
+    font-size: 25px;
+    font-weight: 800;
+
+    box-shadow:
+        0 8px 20px rgba(79,70,229,0.25);
+}
+
+
+#homeRoadmap .roadmap-continue
+.roadmap-content h4 {
+    margin: 0 0 4px !important;
+}
+
+
+#homeRoadmap .roadmap-continue
+.roadmap-content p {
+    margin: 0 !important;
+}
+/* =========================================================
+   SKILLMIRROR AI - ROADMAP PREMIUM CLASS FIX
+   ========================================================= */
+
+/* HOME ROADMAP - MATCH CURRENT JS CLASSES */
+
+#homeRoadmap .roadmap-step-number {
+    width: 42px !important;
+    height: 42px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    margin-bottom: 16px !important;
+
+    border-radius: 14px !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef2ff,
+            #ddd6fe
+        ) !important;
+
+    color: #4f46e5 !important;
+
+    font-size: 15px !important;
+    font-weight: 800 !important;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(99,102,241,0.08);
+}
+
+
+/* First home roadmap card */
+
+#homeRoadmap .roadmap-item:first-child
+.roadmap-step-number {
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5,
+            #7c3aed
+        ) !important;
+
+    color: white !important;
+
+    box-shadow:
+        0 7px 18px rgba(79,70,229,0.25) !important;
+}
+
+
+/* HOME ROADMAP CONTENT */
+
+#homeRoadmap .roadmap-step-content {
+    flex: 1 !important;
+}
+
+
+#homeRoadmap .roadmap-step-content h3 {
+    margin: 0 0 7px !important;
+
+    color: #111827 !important;
+
+    font-size: 15px !important;
+
+    font-weight: 800 !important;
+
+    line-height: 1.35 !important;
+}
+
+
+#homeRoadmap .roadmap-step-content p {
+    margin: 0 0 12px !important;
+
+    color: #64748b !important;
+
+    font-size: 11px !important;
+
+    font-weight: 600 !important;
+}
+
+
+/* =========================================================
+   START CLASS BUTTON - PREMIUM
+   ========================================================= */
+
+#homeRoadmap .roadmap-class-btn {
+    width: 100% !important;
+
+    padding: 9px 12px !important;
+
+    border: none !important;
+
+    border-radius: 12px !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5,
+            #7c3aed
+        ) !important;
+
+    color: white !important;
+
+    font-size: 11px !important;
+
+    font-weight: 750 !important;
+
+    cursor: pointer !important;
+
+    box-shadow:
+        0 6px 16px rgba(79,70,229,0.20) !important;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease !important;
+}
+
+
+#homeRoadmap .roadmap-class-btn:hover {
+    transform: translateY(-2px) !important;
+
+    box-shadow:
+        0 10px 22px rgba(79,70,229,0.28) !important;
+}
+
+
+/* =========================================================
+   CONTINUE CARD
+   ========================================================= */
+
+#homeRoadmap .roadmap-continue {
+    flex: 0 0 150px !important;
+
+    min-height: 145px !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    text-align: center !important;
+}
+
+
+#homeRoadmap .roadmap-continue .roadmap-content {
+    display: block !important;
+}
+
+
+#homeRoadmap .roadmap-continue
+.roadmap-content h4 {
+    color: #3730a3 !important;
+
+    font-size: 15px !important;
+
+    font-weight: 800 !important;
+
+    margin: 0 0 5px !important;
+}
+
+
+#homeRoadmap .roadmap-continue
+.roadmap-content p {
+    color: #64748b !important;
+
+    font-size: 11px !important;
+
+    font-weight: 600 !important;
+
+    margin: 0 !important;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    #homeRoadmap .roadmap-step-number {
+        width: 38px !important;
+        height: 38px !important;
+
+        font-size: 14px !important;
+
+        margin-bottom: 13px !important;
+    }
+
+    #homeRoadmap .roadmap-step-content h3 {
+        font-size: 14px !important;
+    }
+
+    #homeRoadmap .roadmap-class-btn {
+        font-size: 10px !important;
+
+        padding: 8px 10px !important;
+    }
+}
+/* ==================================================
+   PREMIUM MENU OVERLAY + BACKGROUND BLUR
+================================================== */
+
+#menuOverlay {
+    position: fixed !important;
+    inset: 0 !important;
+
+    background: rgba(10, 15, 30, 0.28) !important;
+
+    backdrop-filter: blur(7px) !important;
+    -webkit-backdrop-filter: blur(7px) !important;
+
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease,
+        backdrop-filter 0.25s ease !important;
+
+    z-index: 19999 !important;
+}
+
+/* Overlay active = background blurred */
+#menuOverlay.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
+
+/* Menu must stay above blurred background */
+#menuPanel {
+    position: fixed !important;
+    z-index: 20000 !important;
+}
+/* ==================================================
+   MENU BACKGROUND BLUR
+================================================== */
+
+#menuOverlay {
+    position: fixed !important;
+    inset: 0 !important;
+
+    background: rgba(10, 15, 30, 0.25) !important;
+
+    backdrop-filter: blur(7px) !important;
+    -webkit-backdrop-filter: blur(7px) !important;
+
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease !important;
+
+    z-index: 19999 !important;
+}
+
+#menuOverlay.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
+
+
+/* MENU ABOVE OVERLAY */
+
+#menuPanel {
+    z-index: 20000 !important;
+}
+/* ==================================================
+   MENU OVERLAY + BACKGROUND BLUR FIX
+================================================== */
+
+#menuOverlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+
+    background: rgba(0, 0, 0, 0.20) !important;
+
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+
+    transition: opacity 0.25s ease !important;
+
+    z-index: 19999 !important;
+}
+
+#menuOverlay.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
+
+
+/* MENU ALWAYS ABOVE OVERLAY */
+
+#menuPanel {
+    position: fixed !important;
+    z-index: 20000 !important;
+}
+#nextLessonBtn {
+    display: none;
+    margin-top: 16px;
+}
+
+/* FIX: AI CLASS QUESTIONS GAP */
+
+.class-question-box {
+    margin-top: 12px !important;
+}
+
+/* Reduce extra spacing around class controls */
+.class-controls {
+    margin-bottom: 0 !important;
+}
+
+/* Keep the quiz close to the lesson controls */
+#classCompleteBox {
+    margin-bottom: 12px !important;
+}
+
+/* FIX: AI Class questions ka extra gap */
+#aiClassScreen .question-card {
+    margin-top: 12px !important;
+}
+
+#aiClassScreen .class-controls {
+    margin-bottom: 0 !important;
+}
+
+#aiClassScreen .class-completion-box {
+    margin-bottom: 12px !important;
+}
+
+/* AI CLASS QUIZ ANSWER FEEDBACK */
+.answer-option.correct {
+    background: #d1fae5 !important;
+    border: 2px solid #16a34a !important;
+    color: #166534 !important;
+}
+
+.answer-option.wrong {
+    background: #fee2e2 !important;
+    border: 2px solid #dc2626 !important;
+    color: #991b1b !important;
+}
+
+.answer-option.correct::after {
+    content: " ✓ Correct Answer";
+    font-weight: bold;
+}
+
+.answer-option.wrong::after {
+    content: " ✗ Your Answer";
+    font-weight: bold;
+}
+/* PREMIUM AI CLASS QUIZ */
+
+.class-quiz-section {
+    width: 100%;
+    margin: 28px auto;
+}
+
+.class-quiz-card {
+    background: linear-gradient(145deg, #111827, #1e1b4b);
+    color: #f8fafc;
+    border: 1px solid rgba(139, 92, 246, 0.35);
+    border-radius: 24px;
+    padding: 28px;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.25);
+}
+
+.quiz-label {
+    display: inline-block;
+    color: #c4b5fd;
+    background: rgba(139, 92, 246, 0.15);
+    border: 1px solid rgba(167, 139, 250, 0.3);
+    border-radius: 30px;
+    padding: 7px 12px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.quiz-header h2 {
+    color: #ffffff;
+    font-size: 25px;
+    margin: 14px 0 8px;
+}
+
+.quiz-header p {
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+.quiz-progress {
+    min-width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    background: rgba(139, 92, 246, 0.18);
+    border: 1px solid rgba(167, 139, 250, 0.35);
+    color: #ddd6fe;
+    font-weight: 800;
+}
+
+.quiz-question-area {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 18px;
+    padding: 22px;
+}
+
+.quiz-question-area h3 {
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 0 0 18px;
+}
+
+.answer-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.answer-option {
+    padding: 15px;
+    border-radius: 13px;
+    border: 1px solid #475569;
+    background: #1e293b;
+    color: #f8fafc;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.answer-option:hover {
+    border-color: #a78bfa;
+    transform: translateY(-2px);
+}
+
+.answer-option.selected {
+    border: 2px solid #a78bfa;
+    background: #312e81;
+}
+
+.answer-option.correct {
+    background: #d1fae5 !important;
+    border: 2px solid #16a34a !important;
+    color: #166534 !important;
+}
+
+.answer-option.wrong {
+    background: #fee2e2 !important;
+    border: 2px solid #dc2626 !important;
+    color: #991b1b !important;
+}
+
+.class-question-feedback {
+    margin: 16px 0;
+    color: #ddd6fe;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+.quiz-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.quiz-actions button,
+#restartClassQuiz {
+    padding: 13px 20px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #7c3aed, #4f46e5);
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.quiz-actions button:hover,
+#restartClassQuiz:hover {
+    filter: brightness(1.12);
+    transform: translateY(-1px);
+}
+
+#classQuizComplete {
+    margin-top: 22px;
+    padding: 26px;
+    text-align: center;
+    border-radius: 18px;
+    background: linear-gradient(
+        135deg,
+        rgba(16, 185, 129, 0.15),
+        rgba(139, 92, 246, 0.18)
+    );
+    border: 1px solid rgba(110, 231, 183, 0.3);
+}
+
+#classQuizComplete h3 {
+    color: #a7f3d0;
+    font-size: 23px;
+    margin: 0 0 10px;
+}
+
+#classQuizComplete p {
+    color: #e2e8f0;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+    .class-quiz-card {
+        padding: 18px;
+    }
+
+    .quiz-header h2 {
+        font-size: 21px;
+    }
+
+    .answer-options {
+        grid-template-columns: 1fr;
+    }
+
+    .quiz-question-area {
+        padding: 16px;
+    }
+} 
+
+
+/* BOTTOM NAV ICON FIX */
+
+.bottom-nav .nav-item span {
+display: inline-block !important;
+visibility: visible !important;
+opacity: 1 !important;
+font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif !important;
+font-size: 22px !important;
+line-height: 1.4 !important;
+width: auto !important;
+height: auto !important;
+color: inherit !important;
+text-indent: 0 !important;
+overflow: visible !important;
+}
+
+.bottom-nav .nav-item {
+display: flex !important;
+flex-direction: column !important;
+align-items: center !important;
+justify-content: center !important;
+min-width: 0 !important;
+overflow: visible !important;
+}
+
+.bottom-nav .nav-item small {
+display: block !important;
+visibility: visible !important;
+opacity: 1 !important;
+font-size: 10px !important;
+}
+
+
+/* BOTTOM NAV ICON FIX */
+
+.bottom-nav .nav-icon {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+    font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif !important;
+    font-size: 25px !important;
+    font-weight: bold !important;
+    line-height: 1 !important;
+    color: #64748b !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: static !important;
+}
+
+/* Remove old pseudo icons */
+.bottom-nav .nav-icon::before {
+    content: initial !important;
+display: block !important;
+}
+
+.bottom-nav .nav-item {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.bottom-nav .nav-item small {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* ===== SKILLMIRROR AI NAVIGATION FIX ===== */
+
+#homeNav,
+#roadmapNav,
+#classesNav,
+#performanceNav {
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    cursor: pointer;
+}
+
+/* Keep dashboard navigation visible */
+#homeNav,
+#roadmapNav,
+#classesNav,
+#performanceNav {
+    position: relative;
+    z-index: 1001;
+}
+
+/* Menu overlay */
+#menuOverlay {
+    z-index: 1998;
+}
+
+/* Menu panel */
+#menuPanel {
+    z-index: 1999;
+}
+
+/* Ensure roadmap can be displayed */
+#roadmapScreen {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* Keep roadmap content visible */
+#homeRoadmap,
+#fullRoadmap {
+    visibility: visible;
+}
+
+/* FORCE SHOW DASHBOARD NAVIGATION */
+
+.bottom-nav {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: fixed !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    z-index: 9999 !important;
+}
+
+.bottom-nav button,
+.bottom-nav a {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+#home,
+#home.active {
+    padding-bottom: 90px !important;
+}
+/* TEMP FIX: Make AI Classroom quiz visible */
+#classQuestionScreen {
+display: block !important;
+visibility: visible !important;
+position: relative !important;
+width: 100% !important;
+min-height: 250px !important;
+margin-top: 30px !important;
+overflow: visible !important;
+}
+
+#classQuestionScreen .class-quiz-card {
+display: block !important;
+visibility: visible !important;
+}
+/* =====================================
+SKILLMIRROR AI - QUICK ACTIONS
+===================================== */
+
+#quickAskBtn,
+#quickInterviewBtn,
+#quickTestsBtn {
+position: relative;
+overflow: hidden;
+min-height: 185px;
+padding: 24px;
+border: 1px solid rgba(139, 92, 246, 0.25);
+border-radius: 22px;
+background: linear-gradient(145deg, #ffffff, #f5f3ff);
+box-shadow: 0 10px 28px rgba(79, 70, 229, 0.09);
+cursor: pointer;
+text-align: left;
+transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+#quickAskBtn:hover,
+#quickInterviewBtn:hover,
+#quickTestsBtn:hover {
+transform: translateY(-5px);
+box-shadow: 0 18px 35px rgba(79, 70, 229, 0.17);
+}
+
+#quickAskBtn span,
+#quickInterviewBtn span,
+#quickTestsBtn span {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+width: 58px;
+height: 58px;
+margin-bottom: 16px;
+border-radius: 18px;
+background: linear-gradient(135deg, #ede9fe, #dbeafe);
+font-size: 34px;
+box-shadow: 0 6px 15px rgba(99, 102, 241, 0.12);
+}
+
+#quickAskBtn h3,
+#quickInterviewBtn h3,
+#quickTestsBtn h3 {
+margin: 0 0 9px;
+color: #1e1b4b;
+font-size: 18px;
+font-weight: 800;
+}
+
+#quickAskBtn p,
+#quickInterviewBtn p,
+#quickTestsBtn p {
+margin: 0;
+color: #64748b;
+font-size: 13px;
+line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+#quickAskBtn,
+#quickInterviewBtn,
+#quickTestsBtn {
+min-height: 165px;
+padding: 18px;
+}
+}
+
+/* FIX: Keep Mock Interview hidden unless opened */
+#quickInterviewScreen {
+    display: none;
+    position: relative;
+    width: 100%;
+}
+
+/* Show only when explicitly opened */
+#quickInterviewScreen[style*="display: block"] {
+    display: block;
+}
+
+/* =====================================================
+   SKILLMIRROR AI — PREMIUM PERFORMANCE ANALYTICS
+   Design only: existing HTML IDs remain unchanged
+===================================================== */
+
+#performanceScreen.performance-screen {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 32px 24px 120px;
+    color: #172033;
+    background:
+        radial-gradient(ellipse at 5% 0%, rgba(129, 140, 248, 0.13), transparent 38%),
+        radial-gradient(ellipse at 100% 15%, rgba(192, 132, 252, 0.11), transparent 32%),
+        #f7f8ff;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Header */
+#performanceScreen .roadmap-header {
+    position: relative;
+    padding: 26px 0 30px;
+    margin-bottom: 18px;
+}
+
+#performanceScreen .back-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 42px;
+    padding: 10px 16px;
+    margin-bottom: 24px;
+    border: 1px solid #e0e4f5;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.9);
+    color: #4338ca;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(31, 41, 55, 0.04);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+#performanceScreen .back-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(79,70,229,.12);
+}
+
+#performanceScreen .roadmap-header .small-text {
+    color: #6366f1;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+#performanceScreen .roadmap-header h1 {
+    margin: 0;
+    color: #171b34;
+    font-size: clamp(30px, 4vw, 43px);
+    line-height: 1.15;
+    letter-spacing: -1.3px;
+    font-weight: 850;
+}
+
+#performanceScreen .roadmap-header h1::after {
+    content: "";
+    display: block;
+    width: 66px;
+    height: 5px;
+    margin-top: 16px;
+    border-radius: 99px;
+    background: linear-gradient(90deg, #6366f1, #c084fc);
+}
+
+/* Main score card */
+#performanceScreen > .performance-card:first-of-type {
+    position: relative;
+    overflow: hidden;
+    padding: 34px;
+    margin-bottom: 22px;
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 26px;
+    color: white;
+    background: linear-gradient(120deg, #312e81 0%, #4f46e5 53%, #7c3aed 100%);
+    box-shadow: 0 18px 42px rgba(79,70,229,.20);
+}
+
+#performanceScreen > .performance-card:first-of-type::before {
+    content: "";
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    right: -75px;
+    top: -115px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.18);
+    box-shadow: 0 0 0 28px rgba(255,255,255,.035),
+                0 0 0 58px rgba(255,255,255,.025);
+    pointer-events: none;
+}
+
+#performanceScreen > .performance-card:first-of-type .big-number {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 12px;
+    color: #ffffff;
+    font-size: clamp(52px, 8vw, 76px);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -3px;
+}
+
+#performanceScreen > .performance-card:first-of-type h3 {
+    position: relative;
+    z-index: 1;
+    margin: 0 0 9px;
+    color: white;
+    font-size: clamp(20px, 3vw, 25px);
+}
+
+#performanceScreen > .performance-card:first-of-type p {
+    position: relative;
+    z-index: 1;
+    max-width: 620px;
+    margin: 0;
+    color: #e0e7ff;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* Four analytics cards */
+#performanceScreen .performance-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+#performanceScreen .performance-grid .performance-card {
+    position: relative;
+    overflow: hidden;
+    min-width: 0;
+    min-height: 142px;
+    padding: 23px 18px;
+    border: 1px solid #e8eaf6;
+    border-radius: 20px;
+    background: linear-gradient(145deg, #ffffff, #fafaff);
+    box-shadow: 0 8px 24px rgba(30, 41, 59, .045);
+    transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+
+#performanceScreen .performance-grid .performance-card:hover {
+    transform: translateY(-4px);
+    border-color: #c7d2fe;
+    box-shadow: 0 14px 30px rgba(79,70,229,.10);
+}
+
+#performanceScreen .performance-grid .performance-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #6366f1, #c084fc);
+}
+
+#performanceScreen .performance-grid .big-number {
+    margin: 8px 0 12px;
+    color: #29265f;
+    font-size: clamp(27px, 3vw, 35px);
+    font-weight: 850;
+    line-height: 1.15;
+    overflow-wrap: anywhere;
+}
+
+#performanceScreen .performance-grid .performance-card p {
+    margin: 0;
+    color: #64708a;
+    font-size: 13px;
+    line-height: 1.5;
+    font-weight: 650;
+}
+
+/* AI recommendation card */
+#performanceScreen > .dashboard-card {
+    position: relative;
+    overflow: hidden;
+    margin-top: 6px;
+    padding: 28px;
+    border: 1px solid #e5e7f5;
+    border-radius: 23px;
+    background:
+        radial-gradient(ellipse at 100% 0%, rgba(196,181,253,.17), transparent 40%),
+        #ffffff;
+    box-shadow: 0 10px 28px rgba(30,41,59,.055);
+}
+
+#performanceScreen > .dashboard-card h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 13px;
+    color: #27245f;
+    font-size: 20px;
+}
+
+#performanceScreen > .dashboard-card p {
+    margin: 0 0 22px;
+    color: #667085;
+    font-size: 14px;
+    line-height: 1.85;
+}
+
+#performanceScreen #continueLearningBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 46px;
+    padding: 13px 20px;
+    border: 0;
+    border-radius: 13px;
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 750;
+    box-shadow: 0 8px 20px rgba(79,70,229,.22);
+    transition: transform .2s ease, box-shadow .2s ease;
+    cursor: pointer;
+}
+
+#performanceScreen #continueLearningBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(79,70,229,.30);
+}
+
+/* Tablet */
+@media (max-width: 850px) {
+    #performanceScreen.performance-screen {
+        padding: 24px 18px 115px;
+    }
+
+    #performanceScreen .performance-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 13px;
+    }
+
+    #performanceScreen .performance-grid .performance-card {
+        min-height: 125px;
+        padding: 20px 16px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    #performanceScreen.performance-screen {
+        padding: 18px 13px 110px;
+    }
+
+    #performanceScreen .roadmap-header {
+        padding-top: 14px;
+    }
+
+    #performanceScreen .roadmap-header h1 {
+        font-size: 31px;
+        letter-spacing: -0.8px;
+    }
+
+    #performanceScreen > .performance-card:first-of-type {
+        padding: 26px 22px;
+        border-radius: 21px;
+    }
+
+    #performanceScreen .performance-grid {
+        gap: 10px;
+    }
+
+    #performanceScreen .performance-grid .performance-card {
+        min-height: 116px;
+        padding: 18px 13px;
+        border-radius: 16px;
+    }
+
+    #performanceScreen .performance-grid .big-number {
+        font-size: 28px;
+    }
+
+    #performanceScreen .performance-grid .performance-card p {
+        font-size: 12px;
+    }
+
+    #performanceScreen > .dashboard-card {
+        padding: 22px 18px;
+        border-radius: 19px;
+    }
+
+    #performanceScreen #continueLearningBtn {
+        width: 100%;
+    }
+}
+
+/* =====================================================
+   SKILLMIRROR AI — PREMIUM PRACTICE TESTS
+===================================================== */
+
+#practiceTestScreen.practice-test-screen {
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 30px 22px 120px;
+    color: #172033;
+    background:
+        radial-gradient(ellipse at 0% 0%, rgba(129,140,248,.16), transparent 38%),
+        radial-gradient(ellipse at 100% 10%, rgba(192,132,252,.13), transparent 35%),
+        #f7f8ff;
+}
+
+.practice-test-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.practice-back-btn {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 24px;
+    border: 1px solid #e1e5f4;
+    border-radius: 13px;
+    background: white;
+    color: #4f46e5;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 5px 16px rgba(30,41,59,.05);
+}
+
+.practice-hero {
+    margin-bottom: 25px;
+    padding: 30px;
+    overflow: hidden;
+    border-radius: 26px;
+    color: white;
+    background: linear-gradient(120deg, #211d55, #4338ca 60%, #7c3aed);
+    box-shadow: 0 18px 40px rgba(79,70,229,.20);
+}
+
+.practice-eyebrow {
+    color: #c7d2fe;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+}
+
+.practice-hero h1 {
+    margin: 12px 0 10px;
+    font-size: clamp(32px, 5vw, 45px);
+    letter-spacing: -1.5px;
+}
+
+.practice-hero > p {
+    max-width: 600px;
+    color: #e0e7ff;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.practice-hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 22px;
+}
+
+.practice-hero-tags span {
+    padding: 9px 12px;
+    border: 1px solid #ffffff35;
+    border-radius: 30px;
+    background: #ffffff12;
+    color: #f5f3ff;
+    font-size: 12px;
+    font-weight: 650;
+}
+
+.practice-panel {
+    margin-bottom: 22px;
+    padding: 28px;
+    border: 1px solid #e7e9f5;
+    border-radius: 23px;
+    background: rgba(255,255,255,.96);
+    box-shadow: 0 10px 30px rgba(30,41,59,.055);
+}
+
+.practice-panel-heading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 25px;
+}
+
+.practice-icon {
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    background: #eeebff;
+    font-size: 26px;
+}
+
+.practice-panel-heading h2 {
+    margin: 0 0 6px;
+    color: #24204e;
+    font-size: 22px;
+}
+
+.practice-panel-heading p {
+    margin: 0;
+    color: #748096;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.practice-panel > label {
+    display: block;
+    margin: 19px 0 9px;
+    color: #303750;
+    font-size: 13px;
+    font-weight: 750;
+}
+
+.practice-select {
+    width: 100%;
+    min-height: 49px;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    border: 1px solid #dfe3f1;
+    border-radius: 13px;
+    outline: none;
+    background: #fbfbff;
+    color: #22263d;
+    font: inherit;
+}
+
+.practice-select:focus {
+    border-color: #818cf8;
+    box-shadow: 0 0 0 3px #818cf81f;
+}
+
+.practice-adaptive-note {
+    display: flex;
+    gap: 12px;
+    margin: 23px 0;
+    padding: 16px;
+    border: 1px solid #ddd6fe;
+    border-radius: 15px;
+    background: linear-gradient(120deg, #f5f3ff, #eef2ff);
+    color: #4338ca;
+}
+
+.practice-adaptive-note > span {
+    font-size: 23px;
+}
+
+.practice-adaptive-note strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+
+.practice-adaptive-note p {
+    margin: 0;
+    color: #626b86;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.practice-primary-btn,
+.practice-secondary-btn {
+    min-height: 48px;
+    padding: 13px 18px;
+    border: 0;
+    border-radius: 13px;
+    font-size: 14px;
+    font-weight: 750;
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+}
+
+.practice-primary-btn {
+    color: white;
+    background: linear-gradient(120deg, #4f46e5, #7c3aed);
+    box-shadow: 0 8px 19px rgba(79,70,229,.20);
+}
+
+.practice-primary-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(79,70,229,.26);
+}
+
+.practice-primary-btn:disabled {
+    opacity: .45;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+#startPracticeTestBtn {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.practice-status {
+    color: #6b7280;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.practice-question-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+#practiceQuestionNumber {
+    color: #6366f1;
+    font-size: 11px;
+    font-weight: 850;
+    letter-spacing: 1.4px;
+}
+
+.practice-difficulty {
+    padding: 7px 11px;
+    border-radius: 30px;
+    background: #ecfdf5;
+    color: #047857;
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: .8px;
+}
+
+.practice-difficulty[data-level="medium"] {
+    background: #fff7ed;
+    color: #c2410c;
+}
+
+.practice-difficulty[data-level="hard"] {
+    background: #fef2f2;
+    color: #b91c1c;
+}
+
+.practice-progress-track {
+    width: 100%;
+    height: 8px;
+    overflow: hidden;
+    border-radius: 30px;
+    background: #eceef8;
+}
+
+.practice-progress-fill {
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #6366f1, #a78bfa);
+    transition: width .3s ease;
+}
+
+.practice-progress-text {
+    margin: 9px 0 25px;
+    color: #858ba0;
+    font-size: 12px;
+}
+
+.practice-question-text {
+    margin: 0 0 23px;
+    color: #202442;
+    font-size: clamp(20px, 3vw, 25px);
+    line-height: 1.55;
+}
+
+.practice-options {
+    display: grid;
+    gap: 12px;
+}
+
+.practice-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #e2e5f1;
+    border-radius: 14px;
+    background: #fcfcff;
+    color: #333a51;
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.55;
+    cursor: pointer;
+    transition: border-color .18s ease, background .18s ease;
+}
+
+.practice-option:hover:not(:disabled) {
+    border-color: #a5b4fc;
+    background: #f5f3ff;
+}
+
+.practice-option:disabled {
+    cursor: default;
+}
+
+.practice-option.selected {
+    border-color: #6366f1;
+    background: #eef2ff;
+    color: #3730a3;
+}
+
+.practice-option.correct {
+    border-color: #34d399;
+    background: #ecfdf5;
+    color: #065f46;
+}
+
+.practice-option.incorrect {
+    border-color: #fca5a5;
+    background: #fef2f2;
+    color: #991b1b;
+}
+
+.practice-option-letter {
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    border-radius: 9px;
+    background: #eeeff8;
+    color: #4b4d70;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.practice-answer-feedback {
+    margin-top: 18px;
+    padding: 15px;
+    border-radius: 13px;
+    background: #f3f4ff;
+    color: #34325f;
+    font-size: 13px;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.practice-question-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.practice-question-actions button {
+    flex: 1;
+}
+
+.practice-result-icon {
+    margin-bottom: 12px;
+    font-size: 43px;
+}
+
+.practice-result-title {
+    margin: 10px 0;
+    color: #23204d;
+    font-size: 28px;
+}
+
+.practice-final-score {
+    margin: 20px 0 10px;
+    color: #4f46e5;
+    font-size: clamp(54px, 9vw, 75px);
+    font-weight: 900;
+    letter-spacing: -3px;
+}
+
+.practice-result-message {
+    color: #667085;
+    line-height: 1.7;
+}
+
+.practice-result-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin: 25px 0 30px;
+}
+
+.practice-result-stats > div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 17px 8px;
+    border: 1px solid #e6e8f5;
+    border-radius: 15px;
+    background: #fafaff;
+    text-align: center;
+}
+
+.practice-result-stats strong {
+    color: #29265f;
+    font-size: 27px;
+}
+
+.practice-result-stats span {
+    color: #748096;
+    font-size: 12px;
+}
+
+.practice-review-title {
+    margin: 0 0 15px;
+    color: #24204e;
+}
+
+.practice-review-item {
+    margin-bottom: 12px;
+    padding: 15px;
+    border: 1px solid #e5e7f2;
+    border-radius: 13px;
+    background: #fcfcff;
+}
+
+.practice-review-item strong {
+    display: block;
+    margin-bottom: 8px;
+    color: #2d3150;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.practice-review-item p {
+    margin: 5px 0;
+    color: #64708a;
+    font-size: 12px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.practice-review-item .review-correct {
+    color: #047857;
+}
+
+.practice-review-item .review-incorrect {
+    color: #b91c1c;
+}
+
+.practice-result-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.practice-secondary-btn {
+    border: 1px solid #dfe3f3;
+    background: #f7f7ff;
+    color: #4338ca;
+}
+
+@media (max-width: 600px) {
+    #practiceTestScreen.practice-test-screen {
+        padding: 18px 13px 110px;
+    }
+
+    .practice-hero {
+        padding: 23px 19px;
+        border-radius: 21px;
+    }
+
+    .practice-panel {
+        padding: 21px 16px;
+        border-radius: 19px;
+    }
+
+    .practice-hero-tags {
+        gap: 7px;
+    }
+
+    .practice-hero-tags span {
+        font-size: 10px;
+    }
+
+    .practice-question-actions,
+    .practice-result-actions {
+        grid-template-columns: 1fr;
+        display: grid;
+    }
+
+    .practice-result-stats {
+        gap: 8px;
+    }
+
+    .practice-result-stats strong {
+        font-size: 23px;
+    }
+}

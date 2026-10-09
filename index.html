@@ -1,0 +1,2359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillMirror AI</title>
+
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- ==================================================
+         SKILLMIRROR AI - SCREEN + DASHBOARD OVERRIDES
+    =================================================== -->
+
+    <style>
+
+        /* ==================================================
+           SCREEN CONTROL
+        =================================================== */
+
+        .auth-screen {
+            display: none;
+        }
+
+        #goalScreen {
+            display: none;
+        }
+
+        .top-header {
+            display: none;
+        }
+
+
+
+        .app-screen {
+            display: none;
+        }
+
+
+        /* ==================================================
+           DASHBOARD
+        =================================================== */
+
+        #home {
+            display: none;
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 42px 30px 120px;
+        }
+
+        .welcome-section {
+            margin-bottom: 28px;
+        }
+
+        .welcome-section .small-text {
+            color: #635bff;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            font-size: 12px;
+        }
+
+        .welcome-section h1 {
+            margin: 8px 0 12px;
+            font-size: clamp(38px, 5vw, 58px);
+            line-height: 1.05;
+            letter-spacing: -2px;
+            color: #111827;
+        }
+
+        .welcome-section h1 span {
+            display: block;
+            color: #6257e8;
+        }
+
+        .welcome-section > p:not(.small-text) {
+            color: #64748b;
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
+
+        /* ==================================================
+           GOAL DISPLAY
+        =================================================== */
+
+        .selected-goal-card {
+            display: inline-flex;
+            align-items: center;
+            padding: 11px 16px;
+            border-radius: 13px;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 6px 20px rgba(15,23,42,0.05);
+            color: #475569;
+            font-size: 14px;
+        }
+
+        .selected-goal-card strong {
+            margin-left: 5px;
+            color: #4f46e5;
+        }
+
+        /* Dashboard Change Goal button is removed.
+           Change Goal exists only in Menu. */
+
+
+        /* ==================================================
+           PREMIUM COMPACT STATS
+        =================================================== */
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin-bottom: 28px;
+        }
+
+        .stats-grid .stat-card {
+            min-width: 0;
+            height: 105px;
+            padding: 17px 18px;
+            border-radius: 18px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #ffffff 0%,
+                    #fafaff 100%
+                );
+
+            border: 1px solid rgba(99,102,241,0.10);
+
+            box-shadow:
+                0 8px 24px rgba(15,23,42,0.055),
+                inset 0 1px 0 rgba(255,255,255,0.9);
+
+            transition: all 0.2s ease;
+        }
+
+        .stats-grid .stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow:
+                0 12px 28px rgba(79,70,229,0.10);
+        }
+
+        .stats-grid .stat-card > div:first-child {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .stats-grid .number {
+            font-size: 22px;
+            line-height: 1.1;
+            font-weight: 800;
+            color: #111827;
+        }
+
+        .stats-grid .label {
+            margin-top: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #64748b;
+            white-space: nowrap;
+        }
+
+
+        /* ==================================================
+           DASHBOARD CARDS
+        =================================================== */
+
+        .dashboard-card {
+            margin-bottom: 20px;
+            padding: 27px;
+            border-radius: 22px;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 8px 28px rgba(15,23,42,0.055);
+        }
+
+        .dashboard-card h2 {
+            color: #111827;
+            margin: 5px 0 8px;
+        }
+
+        .dashboard-card p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+
+        /* ==================================================
+           AI CLASSROOM CARD
+        =================================================== */
+
+        .ai-classes-home-card {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+
+            background:
+                radial-gradient(
+                    circle at 100% 0%,
+                    rgba(99,102,241,0.12),
+                    transparent 35%
+                ),
+                #ffffff;
+        }
+
+        .ai-classes-home-icon {
+            width: 65px;
+            height: 65px;
+            flex-shrink: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 18px;
+            background: #eef2ff;
+            font-size: 30px;
+        }
+
+        .ai-classes-home-content {
+            flex: 1;
+        }
+
+        .ai-classes-home-content .small-text {
+            color: #635bff;
+            font-weight: 800;
+            letter-spacing: 1.3px;
+            font-size: 11px;
+        }
+
+        .main-button {
+            border: none;
+            border-radius: 12px;
+            padding: 12px 18px;
+            background: linear-gradient(
+                135deg,
+                #4f46e5,
+                #7c3aed
+            );
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(79,70,229,0.20);
+        }
+
+
+        /* ==================================================
+           ROADMAP PREVIEW
+        =================================================== */
+
+        .section-heading {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .section-heading .small-text {
+            color: #635bff;
+            font-weight: 800;
+            letter-spacing: 1.2px;
+            font-size: 11px;
+        }
+
+        .change-goal-btn {
+            border: 1px solid #c7d2fe;
+            border-radius: 11px;
+            padding: 10px 15px;
+            background: #eef2ff;
+            color: #4f46e5;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+
+        /* ==================================================
+           QUICK ACTIONS
+        =================================================== */
+
+        #home .dashboard-card:last-child .goal-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 13px;
+        }
+
+        #home .dashboard-card:last-child .goal-card {
+            padding: 18px;
+            text-align: left;
+            border: 1px solid #e5e7eb;
+            border-radius: 15px;
+            background: #fafbff;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        #home .dashboard-card:last-child .goal-card:hover {
+            transform: translateY(-2px);
+            border-color: #c7d2fe;
+            background: #f5f3ff;
+        }
+
+        #home .dashboard-card:last-child .goal-card span {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 23px;
+        }
+
+        #home .dashboard-card:last-child .goal-card h3 {
+            margin: 0;
+            color: #111827;
+            font-size: 14px;
+        }
+
+        #home .dashboard-card:last-child .goal-card p {
+            margin: 4px 0 0;
+            font-size: 11px;
+        }
+
+
+        /* ==================================================
+           MOBILE
+        =================================================== */
+
+        @media (max-width: 850px) {
+
+            #home {
+                padding: 30px 18px 110px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            #home .dashboard-card:last-child .goal-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .welcome-section h1 {
+                font-size: 38px;
+                letter-spacing: -1px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .stats-grid .stat-card {
+                height: 92px;
+                padding: 13px;
+            }
+
+            .stats-grid .number {
+                font-size: 19px;
+            }
+
+            .stats-grid .label {
+                font-size: 10px;
+            }
+
+            .ai-classes-home-card {
+                align-items: flex-start;
+            }
+
+            .section-heading {
+                flex-direction: column;
+            }
+
+            .dashboard-card {
+                padding: 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<!-- ======================================================
+     LOGIN SCREEN
+====================================================== -->
+
+<section
+    id="loginScreen"
+    class="auth-screen"
+    style="display:flex;"
+>
+
+    <div class="auth-card">
+
+        <div class="onboarding-logo">✨</div>
+
+        <p class="small-text">WELCOME TO</p>
+
+        <h1>
+            SkillMirror <span>AI</span>
+        </h1>
+
+        <p>
+            Your AI-powered learning and career companion.
+        </p>
+
+        <div class="form-group">
+
+            <label>Email or Mobile Number</label>
+
+            <input
+                type="text"
+                id="userName"
+                placeholder="Email or Mobile Number"
+                autocomplete="username"
+            >
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Password</label>
+
+            <div class="password-wrapper">
+
+                <input
+                    type="password"
+                    id="userPassword"
+                    placeholder="Password"
+                    autocomplete="current-password"
+                >
+
+                <button
+                    type="button"
+                    id="togglePassword"
+                >
+                    👁
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="login-options">
+
+            <label class="remember-option">
+
+                <input
+                    type="checkbox"
+                    id="rememberMe"
+                >
+
+                <span>Remember me</span>
+
+            </label>
+
+            <button
+                type="button"
+                id="forgotPasswordBtn"
+                class="forgot-password"
+            >
+                Forgot Password?
+            </button>
+
+        </div>
+
+        <button
+            class="login-button"
+            id="loginBtn"
+        >
+            Login →
+        </button>
+
+        <p class="create-account-text">
+
+            Don't have an account?
+
+            <button
+                type="button"
+                id="createAccountBtn"
+                class="create-account-btn"
+            >
+                Create Account
+            </button>
+
+        </p>
+
+        <div
+            id="loginMessage"
+            class="login-message"
+        ></div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     CREATE ACCOUNT
+====================================================== -->
+
+<section
+    id="signupScreen"
+    class="auth-screen"
+    style="display:none;"
+>
+
+    <div class="auth-card">
+
+        <div class="onboarding-logo">📝</div>
+
+        <p class="small-text">
+            JOIN SKILLMIRROR AI
+        </p>
+
+        <h1>
+            Create <span>Account</span>
+        </h1>
+
+        <p>
+            Create your profile to start your personalized learning journey.
+        </p>
+
+        <div class="form-group">
+
+            <input
+                type="text"
+                id="firstName"
+                placeholder="First Name"
+                autocomplete="given-name"
+            >
+
+        </div>
+
+        <div class="form-group">
+
+            <input
+                type="text"
+                id="lastName"
+                placeholder="Last Name"
+                autocomplete="family-name"
+            >
+
+        </div>
+
+        <div class="form-group">
+
+            <input
+                type="email"
+                id="signupEmail"
+                placeholder="Email ID"
+                autocomplete="email"
+            >
+
+        </div>
+
+        <div class="form-group">
+
+            <input
+                type="tel"
+                id="mobileNumber"
+                placeholder="Mobile Number"
+                maxlength="10"
+                autocomplete="tel"
+            >
+
+        </div>
+
+        <div class="form-group">
+
+            <input
+                type="text"
+                id="collegeName"
+                placeholder="College Name"
+                autocomplete="organization"
+            >
+
+        </div>
+
+        <div class="form-group">
+
+            <select id="gender">
+
+                <option value="">
+                    Select Gender
+                </option>
+
+                <option value="Female">
+                    Female
+                </option>
+
+                <option value="Male">
+                    Male
+                </option>
+
+                <option value="Other">
+                    Other
+                </option>
+
+                <option value="Prefer not to say">
+                    Prefer not to say
+                </option>
+
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <div class="password-wrapper">
+
+                <input
+                    type="password"
+                    id="signupPassword"
+                    placeholder="Create Password"
+                    autocomplete="new-password"
+                >
+
+                <button
+                    type="button"
+                    id="toggleSignupPassword"
+                >
+                    👁
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+
+            <div class="password-wrapper">
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Confirm Password"
+                    autocomplete="new-password"
+                >
+
+                <button
+                    type="button"
+                    id="toggleConfirmPassword"
+                >
+                    👁
+                </button>
+
+            </div>
+
+        </div>
+
+        <label class="terms-option">
+
+            <input
+                type="checkbox"
+                id="termsCheckbox"
+            >
+
+            <span>
+                I agree to the Terms & Conditions
+            </span>
+
+        </label>
+
+        <button
+            class="signup-button"
+            id="signupBtn"
+        >
+            Create Account →
+        </button>
+
+        <button
+            type="button"
+            class="back-login-btn"
+            id="backToLoginFromSignup"
+        >
+            ← Back to Login
+        </button>
+
+        <div
+            id="signupMessage"
+            class="login-message"
+        ></div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     FORGOT PASSWORD
+====================================================== -->
+
+<section
+    id="forgotScreen"
+    class="auth-screen"
+    style="display:none;"
+>
+
+    <div class="auth-card">
+
+        <div class="onboarding-logo">🔐</div>
+
+        <p class="small-text">
+            ACCOUNT RECOVERY
+        </p>
+
+        <h1>
+            Reset <span>Password</span>
+        </h1>
+
+        <p>
+            Enter your registered email or mobile number to reset your password.
+        </p>
+
+        <div class="form-group">
+
+            <input
+                type="text"
+                id="resetContact"
+                placeholder="Email ID or Mobile Number"
+            >
+
+        </div>
+
+        <button
+            class="auth-button"
+            id="sendResetCodeBtn"
+        >
+            Send Reset Code →
+        </button>
+
+        <div
+            id="resetForm"
+            style="display:none;"
+        >
+
+            <div class="form-group">
+
+                <input
+                    type="text"
+                    id="resetCode"
+                    placeholder="Enter Reset Code"
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <div class="password-wrapper">
+
+                    <input
+                        type="password"
+                        id="newPassword"
+                        placeholder="New Password"
+                    >
+
+                    <button
+                        type="button"
+                        id="toggleNewPassword"
+                    >
+                        👁
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="form-group">
+
+                <div class="password-wrapper">
+
+                    <input
+                        type="password"
+                        id="newConfirmPassword"
+                        placeholder="Confirm New Password"
+                    >
+
+                    <button
+                        type="button"
+                        id="toggleNewConfirmPassword"
+                    >
+                        👁
+                    </button>
+
+                </div>
+
+            </div>
+
+            <button
+                class="auth-button"
+                id="resetPasswordBtn"
+            >
+                Reset Password →
+            </button>
+
+        </div>
+
+        <button
+            type="button"
+            class="back-login-btn"
+            id="backToLoginFromForgot"
+        >
+            ← Back to Login
+        </button>
+
+        <div
+            id="forgotMessage"
+            class="login-message"
+        ></div>
+
+    </div>
+
+</section>
+<!-- ======================================================
+     GOAL SELECTION
+====================================================== -->
+
+<section
+    id="goalScreen"
+    style="display:none;"
+>
+
+    <div class="goal-container">
+
+        <div class="goal-header">
+
+            <p class="small-text">
+                STEP 1 OF 2 🎯
+            </p>
+
+            <h1>
+                What do you want to become?
+            </h1>
+
+            <p>
+                Choose your career goal and SkillMirror AI
+                will create a personalized learning roadmap for you.
+            </p>
+
+        </div>
+
+        <div class="goal-grid">
+
+            <button
+                class="goal-card"
+                data-goal="AI / ML Engineer"
+            >
+                <span>🤖</span>
+                <h3>AI / ML Engineer</h3>
+                <p>Artificial Intelligence & Machine Learning</p>
+            </button>
+
+            <button
+                class="goal-card"
+                data-goal="Software Developer"
+            >
+                <span>💻</span>
+                <h3>Software Developer</h3>
+                <p>Programming & Software Development</p>
+            </button>
+
+            <button
+                class="goal-card"
+                data-goal="Full Stack Developer"
+            >
+                <span>🌐</span>
+                <h3>Full Stack Developer</h3>
+                <p>Frontend + Backend Development</p>
+            </button>
+
+            <button
+                class="goal-card"
+                data-goal="Data Analyst"
+            >
+                <span>📊</span>
+                <h3>Data Analyst</h3>
+                <p>Data, Analytics & Visualization</p>
+            </button>
+
+            <button
+                class="goal-card"
+                data-goal="Cybersecurity Specialist"
+            >
+                <span>🔐</span>
+                <h3>Cybersecurity</h3>
+                <p>Security & Ethical Hacking</p>
+            </button>
+
+            <button
+                class="goal-card"
+                data-goal="Cloud Engineer"
+            >
+                <span>☁️</span>
+                <h3>Cloud Engineer</h3>
+                <p>Cloud Computing & Infrastructure</p>
+            </button>
+
+            <button
+                class="goal-card"
+                data-goal="App Developer"
+            >
+                <span>📱</span>
+                <h3>App Developer</h3>
+                <p>Android & Mobile Applications</p>
+            </button>
+
+            <button
+                class="goal-card"
+                data-goal="UI/UX Designer"
+            >
+                <span>🎨</span>
+                <h3>UI / UX Designer</h3>
+                <p>Design & User Experience</p>
+            </button>
+
+            <button
+                class="goal-card"
+                data-goal="Digital Marketing Specialist"
+            >
+                <span>📈</span>
+                <h3>Digital Marketing</h3>
+                <p>Marketing, SEO & Social Media</p>
+            </button>
+
+            <button
+                class="goal-card"
+                data-goal="Data Scientist"
+            >
+                <span>🧪</span>
+                <h3>Data Scientist</h3>
+                <p>Advanced Data & AI</p>
+            </button>
+
+            <button
+                class="goal-card"
+                data-goal="DevOps Engineer"
+            >
+                <span>🧩</span>
+                <h3>DevOps Engineer</h3>
+                <p>Development + Operations</p>
+            </button>
+
+            <button
+                class="goal-card"
+                data-goal="Database Management"
+            >
+                <span>🗄️</span>
+                <h3>Database Management</h3>
+                <p>SQL, Databases & Data Management</p>
+            </button>
+
+            <button
+                class="goal-card"
+                data-goal="Tech Entrepreneur"
+            >
+                <span>🚀</span>
+                <h3>Tech Entrepreneur</h3>
+                <p>Build Products & Startups</p>
+            </button>
+
+            <button
+                class="goal-card"
+                data-goal="Business & Management"
+            >
+                <span>💼</span>
+                <h3>Business & Management</h3>
+                <p>Leadership & Business Skills</p>
+            </button>
+
+            <button
+                class="goal-card"
+                data-goal="Not Sure Yet"
+            >
+                <span>🎯</span>
+                <h3>I'm Not Sure Yet</h3>
+                <p>Let AI help me discover my path</p>
+            </button>
+
+        </div>
+
+        <button id="aiChooseBtn">
+            ✨ Let AI Choose for Me
+        </button>
+
+        <button id="continueGoalBtn">
+            Continue to My Dashboard →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     APP HEADER
+====================================================== -->
+
+<header class="top-header">
+
+    <h1>
+        SkillMirror AI ✨
+    </h1>
+
+    <button
+        class="menu-button"
+        id="menuButton"
+    >
+        ☰
+    </button>
+
+</header>
+
+
+<!-- ======================================================
+     HOME DASHBOARD
+====================================================== -->
+
+<main
+    id="home"
+    class="dashboard"
+    style="display:none;"
+>
+
+    <!-- WELCOME -->
+
+    <section class="welcome-section">
+
+        <p class="small-text">
+            WELCOME BACK 👋
+        </p>
+
+        <h1>
+            Learn. Improve.
+            <span>Become Future Ready.</span>
+        </h1>
+
+        <p>
+            Your personal AI-powered learning journey starts here.
+        </p>
+
+        <div class="selected-goal-card">
+
+            🎯 Your Career Goal:
+
+            <strong id="selectedGoalText">
+                Choose your career goal
+            </strong>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         STATS
+    =================================================== -->
+
+    <section class="stats-grid">
+
+        <div class="stat-card">
+
+            <div>🔥</div>
+
+            <div
+                class="number"
+                id="streakStat"
+            >
+                0
+            </div>
+
+            <div class="label">
+                Day Streak
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div>📚</div>
+
+            <div
+                class="number"
+                id="lessonsStat"
+            >
+                0
+            </div>
+
+            <div class="label">
+                Lessons Completed
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div>⏱️</div>
+
+            <div
+                class="number"
+                id="hoursStat"
+            >
+                0h
+            </div>
+
+            <div class="label">
+                Learning Hours
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div>🏆</div>
+
+            <div
+                class="number"
+                id="scoreStat"
+            >
+                0%
+            </div>
+
+            <div class="label">
+                Skill Score
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         AI CLASSROOM
+    =================================================== -->
+
+    <section class="dashboard-card ai-classes-home-card">
+
+        <div class="ai-classes-home-icon">
+            👩‍🏫
+        </div>
+
+        <div class="ai-classes-home-content">
+
+            <p class="small-text">
+                AI CLASSROOM
+            </p>
+
+            <h2>
+                Learn with your AI Teacher
+            </h2>
+
+            <p>
+                Attend interactive AI-powered classes,
+                ask questions and test your knowledge.
+            </p>
+
+        </div>
+
+        <button
+            class="main-button"
+            id="startClassBtn"
+        >
+            Start Class →
+        </button>
+
+    </section>
+
+
+    <!-- ==================================================
+         ROADMAP
+    =================================================== -->
+
+    <section class="dashboard-card">
+
+        <div class="section-heading">
+
+            <div>
+
+                <p class="small-text">
+                    YOUR LEARNING PATH
+                </p>
+
+                <h2>
+                    Personalized Roadmap
+                </h2>
+
+                <p>
+                    Follow your AI-generated roadmap
+                    step by step.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div id="homeRoadmap"></div>
+
+    </section>
+
+
+<!-- ================================================== 
+     QUICK ACTIONS 
+=================================================== -->
+<section class="dashboard-card">
+
+<div class="section-heading">
+    <div>
+        <p class="small-text">
+            YOUR AI TOOLS
+        </p>
+
+        <h2>
+            Quick Actions
+        </h2>
+    </div>
+</div>
+
+<div class="goal-grid">
+
+    <!-- ASK AI -->
+    <button
+        class="goal-card"
+        id="quickAskBtn"
+        type="button"
+    >
+        <span>🤖</span>
+
+        <h3>Ask AI</h3>
+
+        <p>
+            Get instant answers, explanations and help with your doubts.
+        </p>
+    </button>
+
+    <!-- AI MOCK INTERVIEW -->
+    <button
+        class="goal-card"
+        id="quickInterviewBtn"
+        type="button"
+    >
+        <span>💼</span>
+
+        <h3>AI Mock Interview</h3>
+
+        <p>
+            Practice HR and technical questions with AI feedback.
+        </p>
+    </button>
+
+    <!-- PRACTICE TESTS -->
+    <button
+        class="goal-card"
+        id="quickTestsBtn"
+        type="button"
+    >
+        <span>📝</span>
+
+        <h3>Practice Tests</h3>
+
+        <p>
+            Test your skills, check your score and learn from mistakes.
+        </p>
+    </button>
+
+</div>
+
+
+</section>
+</main>
+
+<!-- ======================================================
+     AI CLASSROOM — PREMIUM TEACHER SCREEN
+====================================================== -->
+
+<section
+    id="aiClassScreen"
+    class="app-screen ai-class-screen"
+>
+
+    <div class="ai-class-header">
+
+        <button
+            class="ai-back-btn"
+            id="backFromAIClass"
+            aria-label="Back"
+            type="button"
+        >
+            ←
+        </button>
+
+        <div>
+
+            <p class="ai-class-label">
+                TODAY'S LESSON
+            </p>
+
+            <h1 id="aiClassTopic">
+                Python Fundamentals
+            </h1>
+
+            <p id="aiClassSubtitle">
+                Your AI Teacher is ready to teach you.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- PROGRESS -->
+
+    <div class="class-progress-wrap">
+
+        <div
+            id="aiClassProgressFill"
+            class="class-progress-fill"
+        ></div>
+
+    </div>
+
+    <div
+        id="aiClassProgressText"
+        class="class-progress-text"
+    >
+        0%
+    </div>
+
+
+    <!-- ==================================================
+         CLASSROOM
+    =================================================== -->
+
+    <div class="ai-classroom">
+
+
+        <!-- AI TEACHER -->
+
+        <div class="teacher-area">
+
+            <div class="teacher-photo">
+                👩🏻‍🏫
+            </div>
+
+            <div class="teacher-info">
+
+                <h2>
+                    AI Teacher
+                </h2>
+
+                <p id="teacherSpeaking">
+                    👩🏻‍🏫 Madam is ready to teach
+                </p>
+
+                <div
+                    class="voice-wave"
+                    id="teacherVoiceWave"
+                >
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==================================================
+             BLACKBOARD
+        ================================================== -->
+
+        <div class="premium-blackboard">
+
+            <div class="blackboard-frame">
+
+                <div class="blackboard">
+
+                    <div class="board-label">
+                        AI CLASSROOM
+                    </div>
+
+                    <h2 id="boardTitle">
+                        Python Variables
+                    </h2>
+
+                    <div
+                        id="boardText"
+                        class="board-writing"
+                    >
+                        A variable stores information
+                        that your program can use later.
+                    </div>
+
+                    <div
+                        id="boardExample"
+                        class="board-example"
+                    >
+                        name = "Isha"
+                        <br>
+                        age = 19
+                    </div>
+
+                    <div class="board-cursor">
+                        ✎
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==================================================
+             TEACHER CONTROLS
+        ================================================== -->
+
+        <div class="teacher-controls">
+
+            <button
+                id="classVoiceBtn"
+                type="button"
+            >
+                ▶️
+                <span>
+                    Start from beginning
+                </span>
+            </button>
+
+
+            <button
+                id="classContinueBtn"
+                type="button"
+            >
+                ▶
+                <span>
+                    Continue
+                </span>
+            </button>
+
+
+            <button
+                id="classPauseBtn"
+                type="button"
+            >
+                ⏹
+                <span>
+                    Stop
+                </span>
+            </button>
+
+        </div>
+
+    </div>
+
+
+<!-- ======================================================
+     CLASS QUESTIONS - PREMIUM AI QUIZ
+====================================================== -->
+
+<div id="classQuestionScreen" class="class-quiz-section">
+
+    <div class="class-quiz-card">
+
+        <!-- QUIZ HEADER -->
+        <div class="quiz-header">
+            <div>
+                <span class="quiz-label">✦ AI LEARNING LAB</span>
+                <h2>Test Your Knowledge</h2>
+                <p>Answer each question to complete your lesson.</p>
+            </div>
+
+            <div class="quiz-progress">
+                <span id="classQuestionProgress">1/5</span>
+            </div>
+        </div>
+
+        <!-- QUESTION -->
+        <div class="quiz-question-area">
+
+            <h3 id="classQuestionText">
+                Your question will appear here.
+            </h3>
+
+            <!-- ANSWER OPTIONS ARE ADDED BY JAVASCRIPT -->
+            <div
+                id="answerOptions"
+                class="answer-options"
+            ></div>
+
+        </div>
+
+        <!-- FEEDBACK -->
+        <div
+            id="classQuestionFeedback"
+            class="class-question-feedback"
+            aria-live="polite"
+        ></div>
+
+        <!-- QUIZ BUTTONS -->
+        <div class="quiz-actions">
+
+            <button
+                id="submitClassAnswer"
+                type="button"
+            >
+                Check Answer
+            </button>
+
+            <button
+                id="nextQuestionBtn"
+                type="button"
+                style="display: none;"
+            >
+                Next Question →
+            </button>
+
+        </div>
+
+        <!-- COMPLETION CARD -->
+        <div
+            id="classQuizComplete"
+            style="display: none;"
+        >
+            <div class="quiz-success-icon">🎉</div>
+
+            <h3>Lesson Challenge Complete!</h3>
+
+            <p>
+                Great work! You've completed all 5 practice questions.
+            </p>
+
+            <button
+                id="restartClassQuiz"
+                type="button"
+            >
+                Practice Again ↻
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+<!-- END CLASS QUESTIONS -->
+
+<!-- ======================================================
+     ASK YOUR TEACHER
+====================================================== -->
+
+<section
+    id="askTeacherScreen"
+    class="app-screen separate-learning-screen"
+>
+
+    <div class="separate-screen-header">
+
+        <button
+            id="backFromAskTeacher"
+            class="ai-back-btn"
+            type="button"
+            aria-label="Back"
+        >
+            ←
+        </button>
+
+        <div>
+
+            <p class="ai-class-label">
+                AI TEACHER
+            </p>
+
+            <h1>
+                Ask Your Teacher
+            </h1>
+
+        </div>
+
+    </div>
+
+
+    <div class="ask-teacher-card">
+
+        <div class="teacher-chat-icon">
+            👩🏻‍🏫
+        </div>
+
+        <h2>
+            What do you want to know?
+        </h2>
+
+        <p>
+            Ask anything about your lesson.
+        </p>
+
+
+        <textarea
+            id="separateDoubtInput"
+            placeholder="Type your question here..."
+        ></textarea>
+
+
+        <button
+            id="separateAskBtn"
+            type="button"
+        >
+            Ask Teacher
+        </button>
+
+
+        <div
+            id="separateTeacherResponse"
+        ></div>
+
+    </div>
+
+</section>
+
+<!-- SKILLMIRROR AI — ASK AI SCREEN -->
+<section
+    id="quickAskScreen"
+    class="app-screen"
+    style="display:none; padding:24px 16px; min-height:80vh;"
+>
+    <div style="
+        max-width:850px;
+        margin:0 auto;
+        padding:26px;
+        border-radius:22px;
+        background:linear-gradient(135deg,#111827,#1e1b4b);
+        color:white;
+        box-shadow:0 12px 35px rgba(0,0,0,0.18);
+    ">
+        <button
+            id="quickAskBackBtn"
+            type="button"
+            style="background:#ffffff18;color:white;border:1px solid #ffffff35;
+            border-radius:10px;padding:10px 15px;cursor:pointer;margin-bottom:22px;"
+        >← Back to Dashboard</button>
+
+        <div style="font-size:38px;margin-bottom:10px;">✨</div>
+
+        <h1 style="font-size:30px;margin:0 0 10px;">
+            Ask AI
+        </h1>
+
+        <p style="color:#c7d2fe;line-height:1.7;margin-bottom:24px;">
+            Ask anything you want to learn. Get a clear answer,
+            a simple explanation, and an example from your AI teacher.
+        </p>
+
+        <form id="quickAskForm">
+            <label for="quickAskInput"
+                style="display:block;margin-bottom:10px;font-weight:600;">
+                What do you want to learn today?
+            </label>
+
+            <textarea
+                id="quickAskInput"
+                placeholder="Example: What is Artificial Intelligence? Explain with an example..."
+                required
+                rows="4"
+                style="box-sizing:border-box;width:100%;padding:16px;
+                border-radius:14px;border:1px solid #c7d2fe;
+                background:#ffffff;color:#111827;font-size:16px;
+                resize:vertical;outline:none;"
+            ></textarea>
+
+            <button
+                id="quickAskSubmitBtn"
+                type="submit"
+                style="margin-top:16px;width:100%;padding:15px;
+                border:0;border-radius:13px;background:#818cf8;
+                color:#111827;font-size:16px;font-weight:700;cursor:pointer;"
+            >✨ Ask AI & Get Explanation</button>
+        </form>
+
+        <div
+            id="quickAskStatus"
+            role="status"
+            style="margin-top:18px;color:#c7d2fe;"
+        ></div>
+
+        <div
+            id="quickAskAnswerBox"
+            style="display:none;margin-top:22px;padding:20px;
+            background:#ffffff;color:#1f2937;border-radius:16px;
+            line-height:1.8;overflow-wrap:anywhere;"
+        >
+            <h3 style="margin-top:0;color:#4338ca;">
+                📘 AI Answer & Explanation
+            </h3>
+
+            <div id="quickAskAnswer"
+                style="white-space:pre-wrap;"></div>
+        </div>
+    </div>
+</section>
+
+<!-- SKILLMIRROR AI — MOCK INTERVIEW SCREEN -->
+<section
+    id="quickInterviewScreen"
+    class="app-screen"
+    style="display:none; padding:24px 16px; min-height:80vh;"
+>
+    <div style="
+        max-width:850px;
+        margin:0 auto;
+        padding:26px;
+        border-radius:22px;
+        background:linear-gradient(135deg,#111827,#312e81);
+        color:white;
+        box-shadow:0 12px 35px rgba(0,0,0,0.18);
+    ">
+        <button
+            id="interviewBackBtn"
+            type="button"
+            style="background:#ffffff18;color:white;border:1px solid #ffffff35;
+            border-radius:10px;padding:10px 15px;cursor:pointer;margin-bottom:22px;"
+        >← Back to Dashboard</button>
+
+        <div style="font-size:38px;margin-bottom:10px;">💼</div>
+
+        <h1 style="font-size:30px;margin:0 0 10px;">
+            AI Mock Interview
+        </h1>
+
+        <p style="color:#c7d2fe;line-height:1.7;">
+            Practice like a real interview. Answer each question and
+            get AI feedback to improve your confidence and skills.
+        </p>
+
+        <label for="interviewType"
+            style="display:block;margin:22px 0 8px;font-weight:600;">
+            Choose interview type
+        </label>
+
+        <select id="interviewType"
+            style="width:100%;box-sizing:border-box;padding:13px;
+            border-radius:12px;font-size:16px;background:white;color:#111827;">
+            <option value="HR">HR Interview</option>
+            <option value="Technical">Technical Interview</option>
+            <option value="Mixed">Mixed Interview</option>
+        </select>
+
+        <button id="startInterviewBtn" type="button"
+            style="width:100%;padding:14px;margin-top:14px;border:0;
+            border-radius:12px;background:#a5b4fc;color:#111827;
+            font-size:16px;font-weight:700;cursor:pointer;">
+            Start Interview
+        </button>
+
+        <div id="interviewQuestionArea"
+            style="display:none;margin-top:24px;padding:20px;
+            border-radius:16px;background:#ffffff;color:#1f2937;">
+
+            <p style="color:#6366f1;font-weight:700;margin-top:0;">
+                INTERVIEW QUESTION
+            </p>
+
+            <h2 id="interviewQuestion"
+                style="font-size:21px;line-height:1.5;"></h2>
+
+            <label for="interviewAnswer"
+                style="display:block;font-weight:600;margin:20px 0 8px;">
+                Your Answer
+            </label>
+
+            <textarea id="interviewAnswer" rows="5"
+                placeholder="Type your answer here..."
+                style="width:100%;box-sizing:border-box;padding:14px;
+                border:1px solid #d1d5db;border-radius:12px;
+                font-size:16px;resize:vertical;"></textarea>
+
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;">
+    <button
+        id="interviewMicBtn"
+        type="button"
+        style="flex:1;min-width:180px;padding:13px;border:0;
+        border-radius:12px;background:#dbeafe;color:#1e40af;
+        font-weight:700;cursor:pointer;"
+    >🎙️ Answer by Voice</button>
+
+    <button
+        id="replayInterviewQuestionBtn"
+        type="button"
+        style="flex:1;min-width:180px;padding:13px;border:0;
+        border-radius:12px;background:#ede9fe;color:#5b21b6;
+        font-weight:700;cursor:pointer;"
+    >🔊 Repeat Question</button>
+</div>
+
+<p
+    id="interviewVoiceStatus"
+    role="status"
+    style="font-size:14px;color:#4b5563;margin-top:10px;"
+>
+    You can type your answer or use your microphone.
+</p>
+            <button id="submitInterviewAnswerBtn" type="button"
+                style="width:100%;padding:14px;margin-top:12px;border:0;
+                border-radius:12px;background:#6366f1;color:white;
+                font-size:16px;font-weight:700;cursor:pointer;">
+                Submit Answer for AI Feedback
+            </button>
+
+            <div id="interviewFeedback"
+                style="display:none;margin-top:20px;padding:18px;
+                border-radius:12px;background:#eef2ff;
+                color:#1f2937;line-height:1.8;white-space:pre-wrap;"></div>
+
+            <button id="nextInterviewBtn" type="button"
+                style="display:none;width:100%;padding:14px;margin-top:14px;
+                border:0;border-radius:12px;background:#111827;
+                color:white;font-weight:700;cursor:pointer;">
+                Next Question →
+            </button>
+        </div>
+
+        <p id="interviewStatus" role="status"
+            style="margin-top:16px;color:#c7d2fe;"></p>
+    </div>
+</section>
+
+<!-- =====================================================
+     SKILLMIRROR AI — PRACTICE TESTS
+     Place after quickInterviewScreen and before roadmapScreen
+===================================================== -->
+
+<section
+    id="practiceTestScreen"
+    class="app-screen practice-test-screen"
+    style="display:none;"
+>
+    <div class="practice-test-container">
+
+        <button
+            id="practiceTestBackBtn"
+            class="practice-back-btn"
+            type="button"
+            aria-label="Back to Dashboard"
+        >←</button>
+
+        <div class="practice-hero">
+            <span class="practice-eyebrow">✦ SKILLMIRROR AI LEARNING LAB</span>
+            <h1>Practice Tests</h1>
+            <p>Test your knowledge, improve your skills and track your progress.</p>
+
+            <div class="practice-hero-tags">
+                <span>🧠 Adaptive Difficulty</span>
+                <span>✨ AI Questions</span>
+                <span>📊 Instant Results</span>
+            </div>
+        </div>
+
+        <!-- TEST SETUP -->
+        <div id="practiceSetup" class="practice-panel">
+            <div class="practice-panel-heading">
+                <span class="practice-icon">🎯</span>
+                <div>
+                    <h2>Build Your Test</h2>
+                    <p>Choose a subject and start practicing.</p>
+                </div>
+            </div>
+
+            <label for="practiceTopic">Choose subject</label>
+            <select id="practiceTopic" class="practice-select">
+                <option value="Career Goal">My Career Goal</option>
+                <option value="Python">Python Fundamentals</option>
+                <option value="AI and Machine Learning">AI &amp; Machine Learning</option>
+                <option value="Web Development">HTML &amp; CSS</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="General Aptitude">General Aptitude</option>
+            </select>
+
+            <label for="practiceMode">Question mode</label>
+            <select id="practiceMode" class="practice-select">
+                <option value="mixed">Mixed — Fixed + AI Questions</option>
+                <option value="fixed">Fixed MCQs</option>
+                <option value="ai">AI-Generated Questions</option>
+            </select>
+
+            <div class="practice-adaptive-note">
+                <span>⚡</span>
+                <div>
+                    <strong>Adaptive Difficulty is ON</strong>
+                    <p>Answer correctly to unlock harder questions. If a question feels difficult, the next one can become easier.</p>
+                </div>
+            </div>
+
+            <button id="startPracticeTestBtn" class="practice-primary-btn" type="button">
+                Start Practice Test <span>→</span>
+            </button>
+
+            <p id="practiceSetupStatus" class="practice-status" role="status"></p>
+        </div>
+
+        <!-- QUESTION AREA -->
+        <div id="practiceQuestionPanel" class="practice-panel" style="display:none;">
+            <div class="practice-question-top">
+                <span id="practiceQuestionNumber">QUESTION 1</span>
+                <span id="practiceDifficultyBadge" class="practice-difficulty">EASY</span>
+            </div>
+
+            <div class="practice-progress-track">
+                <div id="practiceProgressFill" class="practice-progress-fill"></div>
+            </div>
+
+            <p id="practiceProgressText" class="practice-progress-text">Question 1 of 5</p>
+
+            <h2 id="practiceQuestionText" class="practice-question-text">
+                Your question will appear here.
+            </h2>
+
+            <div id="practiceOptions" class="practice-options"></div>
+
+            <div id="practiceAnswerFeedback" class="practice-answer-feedback"
+                role="status" style="display:none;"></div>
+
+            <div class="practice-question-actions">
+                <button id="checkPracticeAnswerBtn" class="practice-primary-btn" type="button" disabled>
+                    Check Answer
+                </button>
+
+                <button id="nextPracticeQuestionBtn" class="practice-primary-btn"
+                    type="button" style="display:none;">
+                    Next Question →
+                </button>
+            </div>
+
+            <p id="practiceQuestionStatus" class="practice-status" role="status"></p>
+        </div>
+
+        <!-- RESULTS -->
+        <div id="practiceResultPanel" class="practice-panel" style="display:none;">
+            <div class="practice-result-icon">🏆</div>
+            <p class="practice-eyebrow">TEST COMPLETED</p>
+            <h2 class="practice-result-title">Your Performance</h2>
+
+            <div id="practiceFinalScore" class="practice-final-score">0%</div>
+            <p id="practiceResultMessage" class="practice-result-message"></p>
+
+            <div class="practice-result-stats">
+                <div>
+                    <strong id="practiceCorrectCount">0</strong>
+                    <span>Correct</span>
+                </div>
+                <div>
+                    <strong id="practiceWrongCount">0</strong>
+                    <span>Incorrect</span>
+                </div>
+                <div>
+                    <strong id="practiceTotalCount">0</strong>
+                    <span>Questions</span>
+                </div>
+            </div>
+
+            <h3 class="practice-review-title">Answer Review</h3>
+            <div id="practiceAnswerReview"></div>
+
+            <div class="practice-result-actions">
+                <button id="retryPracticeTestBtn" class="practice-primary-btn" type="button">
+                    Try Again ↻
+                </button>
+                <button id="practiceResultHomeBtn" class="practice-secondary-btn" type="button">
+                    Back to Dashboard
+                </button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ======================================================
+     ROADMAP
+====================================================== -->
+
+<section
+    id="roadmapScreen"
+    class="app-screen roadmap-screen"
+>
+
+    <div class="roadmap-header">
+
+        <button
+            class="back-button"
+            id="backFromRoadmap"
+            type="button"
+        >
+            ← 
+        </button>
+
+        <h1>
+            My Skill Roadmap
+        </h1>
+
+        <p>
+            Your personalized learning journey
+        </p>
+
+    </div>
+
+
+    <div class="roadmap-summary-card">
+        <h2 id="roadmapGoalTitle">Your Career Roadmap</h2>
+        <p>Follow your personalized learning journey step by step.</p>
+    </div>
+
+    <div id="fullRoadmap"></div>
+
+</section>
+  
+<!-- ======================================================
+     PERFORMANCE
+====================================================== -->
+
+<section
+    id="performanceScreen"
+    class="app-screen performance-screen"
+>
+
+    <div class="roadmap-header">
+
+        <button
+            class="back-button"
+            id="backFromPerformance"
+            type="button"
+        >
+            ← 
+        </button>
+
+        <p class="small-text">
+            YOUR PROGRESS 📊
+        </p>
+
+        <h1>
+            Performance Analysis
+        </h1>
+
+    </div>
+
+
+    <div class="performance-card">
+
+        <div
+            class="big-number"
+            id="performanceAnalysisScore"
+        >
+            0%
+        </div>
+
+        <h3 id="performanceMessage">
+            Start Your Learning Journey 🚀
+        </h3>
+
+        <p id="performanceDescription">
+            Complete your first class to start tracking
+            your performance.
+        </p>
+
+    </div>
+
+
+    <div class="performance-grid">
+
+        <div class="performance-card">
+
+            <div
+                class="big-number"
+                id="analysisClasses"
+            >
+                0
+            </div>
+
+            <p>
+                Classes Completed
+            </p>
+
+        </div>
+
+
+        <div class="performance-card">
+
+            <div
+                class="big-number"
+                id="analysisAccuracy"
+            >
+                0%
+            </div>
+
+            <p>
+                Quiz Accuracy
+            </p>
+
+        </div>
+
+
+        <div class="performance-card">
+
+            <div
+                class="big-number"
+                id="analysisStreak"
+            >
+                0 Days
+            </div>
+
+            <p>
+                Learning Streak
+            </p>
+
+        </div>
+
+
+        <div class="performance-card">
+
+            <div
+                class="big-number"
+                id="analysisSkills"
+            >
+                0
+            </div>
+
+            <p>
+                Skills Improved
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="dashboard-card">
+
+        <h3>
+            🤖 AI Recommendation
+        </h3>
+
+        <p id="aiRecommendation">
+            Complete your first class and SkillMirror AI
+            will generate personalized recommendations
+            based on your performance.
+        </p>
+
+        <button
+            id="continueLearningBtn"
+            class="main-button"
+            type="button"
+        >
+            Continue Learning →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     SIDE MENU
+====================================================== -->
+
+<aside
+    class="side-menu"
+    id="menuPanel"
+>
+
+    <div class="side-menu-header">
+
+        <h2>
+            SkillMirror AI
+        </h2>
+
+        <button
+            id="closeMenu"
+            type="button"
+        >
+            ✕
+        </button>
+
+    </div>
+
+
+    <button
+        class="menu-item"
+        id="homeMenu"
+        type="button"
+    >
+        🏠 Dashboard
+    </button>
+
+
+    <button
+        class="menu-item"
+        id="performanceMenu"
+        type="button"
+    >
+        📊 Performance Analysis
+    </button>
+
+
+    
+<button
+    class="menu-item"
+    id="mockTestMenu"
+    type="button"
+>
+    🧪 Mock Test
+</button>
+
+
+    <button
+        class="menu-item"
+        id="roadmapMenu"
+        type="button"
+    >
+        🗺️ Skill Roadmap
+    </button>
+
+
+    <button
+        class="menu-item"
+        id="classesMenu"
+        type="button"
+    >
+        🎓 AI Classes
+    </button>
+
+
+    <button
+        class="menu-item"
+        id="changeGoalBtn"
+        type="button"
+    >
+        🔄 Change Career Goal
+    </button>
+
+
+    <button
+        class="menu-item"
+        type="button"
+    >
+        💬 Feedback
+    </button>
+
+
+    <button
+        class="menu-item"
+        type="button"
+    >
+        📈 My Performance
+    </button>
+
+
+    <button
+        class="menu-item"
+        id="coachMenu"
+        type="button"
+    >
+        👩‍🏫 AI Coach
+    </button>
+
+
+    <button
+        class="menu-item"
+        type="button"
+    >
+        🏆 Mock Test Completed
+    </button>
+
+
+    <button
+        class="menu-item"
+        type="button"
+    >
+        🎥 Video Classes
+    </button>
+
+
+    <button
+        class="menu-item"
+        type="button"
+    >
+        📚 Courses / Classes
+    </button>
+
+
+    <button
+        id="logoutBtn"
+        class="menu-item"
+        type="button"
+    >
+        🚪 Logout
+    </button>
+
+</aside>
+
+
+<!-- ======================================================
+     MENU OVERLAY
+====================================================== -->
+
+<div
+    class="menu-overlay"
+    id="menuOverlay"
+></div>
+
+<!-- ======================================================
+     BOTTOM NAVIGATION
+====================================================== -->
+
+
+
+<nav class="bottom-nav">
+
+    <button class="nav-item active" id="homeNav" type="button">
+        <span class="nav-icon home-icon">🏠</span>
+        <small>Home</small>
+    </button>
+
+    <button class="nav-item" id="roadmapNav" type="button">
+        <span class="nav-icon roadmap-icon">🗺️</span>
+        <small>Roadmap</small>
+    </button>
+
+    <button class="nav-item" id="classesNav" type="button">
+        <span class="nav-icon classes-icon">📚</span>
+        <small>AI Classes</small>
+    </button>
+
+    <button class="nav-item" id="performanceNav" type="button">
+        <span class="nav-icon performance-icon">📊</span>
+        <small>Performance</small>
+    </button>
+
+</nav>
+
+
+<!-- ======================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script src="/script.js"></script>
+
+</body>
+</html>
